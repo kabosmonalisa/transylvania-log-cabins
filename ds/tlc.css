@@ -1060,3 +1060,6 @@ body.modal-open{ overflow:hidden; }
   .book-layout[data-step="1"] > aside{ display:none; }
   .book-layout[data-step="2"] > .book-col-stay{ display:none; }
 }
+
+/* Our Story hero: big headline over the portrait + intro row */
+.story-hero-head{ margin-bottom:clamp(40px,5vw,68px); }
