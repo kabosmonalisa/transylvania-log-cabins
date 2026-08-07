@@ -113,9 +113,9 @@ window.TLC = (function () {
       '<footer class="tlc-footer">' +
         '<div class="tlc-footer-inner">' +
           '<div class="tlc-footer-cta">' +
-            '<span class="eyebrow">Private by nature &middot; book direct</span>' +
+            '<span class="eyebrow">Private by nature</span>' +
             '<h2 class="display">Come find the <span class="script">quiet</span>.</h2>' +
-            '<p class="lead">A private, adults-only retreat in wild Transylvania &mdash; fewer people, more space, deeper rest. Book straight with your hosts, no platform fees.</p>' +
+            '<p class="lead">A private, adults-only retreat in wild Transylvania &mdash; fewer people, more space, deeper rest.</p>' +
             '<a class="btn" href="' + rel("/book.html") + '">Check dates &amp; book</a>' +
           '</div>' +
           '<div class="tlc-footer-foot">' +
@@ -184,7 +184,7 @@ window.TLC = (function () {
         '<div class="tlc-modal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>' +
         '<span class="eyebrow">Request received</span>' +
         '<h2>Thank you.</h2>' +
-        '<p>Your request is with Rares &amp; Gabie. They&rsquo;ll get back to you within a day to confirm your dates &mdash; no payment until then.</p>' +
+        '<p>Your request is with Rares &amp; Gabie. They&rsquo;ll get back to you within a day to confirm your dates.</p>' +
         '<button class="btn" type="button" data-modal-close>Close</button>' +
       '</div>';
     document.body.appendChild(overlay);
