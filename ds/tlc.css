@@ -657,7 +657,7 @@ body.drawer-open{ overflow:hidden; }
 @media (max-width: 760px){
   .tlc-links{ display:none; }
   .tlc-burger{ display:block; }
-  .split{ grid-template-columns:1fr; gap:32px; }
+  .split, .split.reverse{ grid-template-columns:1fr; gap:32px; }
   .split.reverse .split-media{ order:0; }
   .grid-stays{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:repeat(2,1fr); }
@@ -1063,7 +1063,7 @@ body.modal-open{ overflow:hidden; }
 
 /* Our Story hero: portrait beside the eyebrow + big headline + intro (all one side) */
 .story-hero .split{ align-items:center; }
-.story-hero .split.reverse{ grid-template-columns:1.1fr 0.95fr; }
+@media (min-width:761px){ .story-hero .split.reverse{ grid-template-columns:1.1fr 0.95fr; } }
 .story-hero h1.display{ font-size:clamp(2.6rem,5vw,4.4rem); line-height:1.04; margin:0; }
 .story-hero .split-body .eyebrow{ display:block; margin-bottom:20px; }
 /* Belief pull-quote in the hero's empty space, under the body copy */
