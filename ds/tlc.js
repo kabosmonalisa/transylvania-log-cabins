@@ -210,6 +210,24 @@ window.TLC = (function () {
     });
   }
 
+  // "View" eye cursor for stay-card covers — a real element inside the media, so the
+  // frame's overflow:hidden clips it and it never spills outside the image edge.
+  function initStayCursors(){
+    if (window.matchMedia && window.matchMedia('(hover: none)').matches) return; // touch: skip
+    var EYE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46"><circle cx="23" cy="23" r="21" fill="rgba(24,24,24,0.42)" stroke="#F4EFE6" stroke-width="0.5"/><path d="M13 23Q23 13.5 33 23Q23 32.5 13 23Z" fill="none" stroke="#F4EFE6" stroke-width="0.7" stroke-linejoin="round"/><circle cx="23" cy="23" r="1.2" fill="#F4EFE6"/></svg>';
+    Array.prototype.forEach.call(document.querySelectorAll('.stay-card-media'), function (media) {
+      var cur = document.createElement('span');
+      cur.className = 'stay-cursor'; cur.innerHTML = EYE;
+      media.appendChild(cur); media.style.cursor = 'none';
+      media.addEventListener('mousemove', function (e) {
+        var r = media.getBoundingClientRect();
+        cur.style.transform = 'translate(' + (e.clientX - r.left) + 'px,' + (e.clientY - r.top) + 'px)';
+      });
+      media.addEventListener('mouseenter', function () { cur.style.opacity = '1'; });
+      media.addEventListener('mouseleave', function () { cur.style.opacity = '0'; });
+    });
+  }
+
   function init(opts){
     opts = opts || {};
     var navRoot = document.querySelector("[data-tlc-nav]");
@@ -220,6 +238,7 @@ window.TLC = (function () {
     initFixedHeader(!!opts.heroNav);
     initThankYou();
     initCarousels();
+    initStayCursors();
     if (!document.querySelector('.tlc-wa-fab')) {
       var wa = document.createElement('a');
       wa.className = 'tlc-wa-fab'; wa.href = 'https://wa.me/' + WA_NUMBER;
