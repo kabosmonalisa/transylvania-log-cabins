@@ -1,0 +1,49 @@
+{
+  "brand": {
+    "name": "Transylvania Log Cabins",
+    "hosts": "Rares & Gabie",
+    "superhost": true,
+    "reviews": 1632,
+    "rating": 4.93,
+    "yearsHosting": 11,
+    "location": "Peșteana, Hunedoara, Transylvania, Romania",
+    "languages": ["English", "French", "Portuguese", "Spanish"],
+    "adultsOnly": true,
+    "signature": "Private by nature",
+    "belief": "True luxury is having nothing between you and nature.",
+    "airbnbProfile": "https://www.airbnb.com/users/profile/1462656370071299332"
+  },
+  "listings": [
+    {
+      "slug": "log-cabin", "name": "The Transylvania Log Cabin", "type": "Cabin",
+      "roomId": "6130054", "guests": 4, "bedrooms": 2, "beds": 2, "baths": 1,
+      "rating": 4.93, "reviews": 486, "features": ["Pool", "Jacuzzi", "Wood interior", "Forest view"],
+      "airbnb": "https://www.airbnb.com/rooms/6130054", "photos": 15, "hero": "photos/log-cabin/01.jpg"
+    },
+    {
+      "slug": "hill-cabin", "name": "The Hill Cabin", "type": "Cabin",
+      "roomId": "21526601", "guests": 4, "bedrooms": 2, "beds": 2, "baths": 1,
+      "rating": 4.95, "reviews": 309, "features": ["Heated pool", "Jacuzzi", "Valley view", "Hammock"],
+      "press": "The Guardian — 20 of the coolest holiday cabins in Europe",
+      "airbnb": "https://www.airbnb.com/rooms/21526601", "photos": 18, "hero": "photos/hill-cabin/01.jpg"
+    },
+    {
+      "slug": "treehouse", "name": "The Transylvania Treehouse", "type": "Treehouse",
+      "roomId": "25700698", "guests": 2, "bedrooms": 1, "beds": 1, "baths": 1.5,
+      "rating": 4.95, "reviews": 460, "features": ["Pool", "Jacuzzi", "Canopy views", "Adults only"],
+      "airbnb": "https://www.airbnb.com/rooms/25700698", "photos": 11, "hero": "photos/treehouse/01.jpg"
+    },
+    {
+      "slug": "loft-treehouse", "name": "The Loft Treehouse", "type": "Treehouse",
+      "roomId": "35854800", "guests": 2, "bedrooms": 1, "beds": 2, "baths": 2,
+      "rating": 4.87, "reviews": 316, "features": ["Heated pool", "Jacuzzi", "Loft bedroom", "Forest"],
+      "airbnb": "https://www.airbnb.com/rooms/35854800", "photos": 16, "hero": "photos/loft-treehouse/01.jpg"
+    },
+    {
+      "slug": "barn-ensuite", "name": "The Barn Ensuite", "type": "Barn",
+      "roomId": "1232585088902678884", "guests": 2, "bedrooms": 1, "beds": 1, "baths": 1,
+      "rating": null, "reviews": null, "features": ["Heated pool", "Jacuzzi", "Ensuite", "Adults only"],
+      "airbnb": "https://www.airbnb.com/rooms/1232585088902678884", "photos": 9, "hero": "photos/barn-ensuite/01.jpg"
+    }
+  ]
+}

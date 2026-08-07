@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>The Transylvania Log Cabin &middot; Transylvania Log Cabins</title>
+  <meta name="description" content="The Transylvania Log Cabin &mdash; a hand-built adults-only log cabin near Pe&#537;teana, with a heated pool, jacuzzi and forest all around.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ds/tlc.css?v=148">
+</head>
+<body>
+  <div data-tlc-nav data-active="stays"></div>
+  <main>
+    <section class="section" style="padding-bottom:clamp(44px,5.5vw,72px)">
+      <div class="stay-title">
+        <span class="eyebrow">Cabin &middot; Peşteana, Transylvania</span>
+        <h1 class="display">The Transylvania Log <span class="script">Cabin</span></h1>
+        <p class="stay-submeta"><span class="sc-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.93 &middot; 486 reviews &nbsp;&middot;&nbsp; Adults only &nbsp;&middot;&nbsp; Superhost</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;padding-bottom:0">
+      <div class="stay-mosaic">
+        <figure><img src="../photos/log-cabin/09.jpg" alt="The Transylvania Log Cabin"></figure>
+        <figure><img src="../photos/log-cabin/04.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure>
+        <figure><img src="../photos/log-cabin/11.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure>
+        <figure><img src="../photos/log-cabin/01.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure>
+        <figure><img src="../photos/log-cabin/05.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure>
+        <button class="btn btn-line stay-mosaic-all" id="showAll" type="button">Show all 15 photos</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stay-body">
+        <div>
+          <div class="stay-section stay-summary">
+            <h2 class="display-sm">The whole cabin, <span class="script">yours</span>.</h2>
+            <p class="stay-summary-line">4 guests &nbsp;&middot;&nbsp; 2 bedrooms &nbsp;&middot;&nbsp; 2 beds &nbsp;&middot;&nbsp; 1 bath</p>
+          </div>
+          <div class="stay-highlights">
+            <div class="stay-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 7a4 4 0 1 0-3.9 5H14v3h3v3h4v-4l-6-6z"/></svg><div><b>Self check-in</b><p>Arrive on your own time &mdash; a simple, private self check-in.</p></div></div>
+            <div class="stay-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9c2 0 2 1.6 4 1.6S9 9 11 9s2 1.6 4 1.6S17 9 19 9M3 15c2 0 2 1.6 4 1.6S9 15 11 15s2 1.6 4 1.6S17 15 19 15"/></svg><div><b>Pool &amp; jacuzzi</b><p>Open through the warm season, steps from the door.</p></div></div>
+            <div class="stay-hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-9 4 5 3-4 5 8H3z"/></svg><div><b>Forest all around</b><p>Timber walls, wood interior, and forest in every window.</p></div></div>
+          </div>
+          <div class="stay-section">
+            <span class="eyebrow" style="display:block;margin-bottom:16px">The stay</span>
+            <p class="prose">A Canadian-style log cabin built from timber &mdash; warm underfoot, quiet all around, with two bedrooms and a heated pool and jacuzzi just below.</p>
+            <p class="prose">Room for four, but made for slowing down: long light, birdsong, and the kind of stillness you can actually hear.</p>
+          </div>
+          <div class="stay-section">
+            <span class="eyebrow" style="display:block;margin-bottom:20px">What&rsquo;s here</span>
+            <ul class="amenities">
+        <li>Pool</li>
+        <li>Jacuzzi</li>
+        <li>Forest view</li>
+        <li>Wood interior</li>
+        <li>Hammock</li>
+        <li>Adults only</li>
+        <li>Private estate entrance</li>
+        <li>On-site parking</li>
+            </ul>
+          </div>
+        </div>
+        <aside>
+          <div class="bw bw-side">
+            <div class="bw-bar">
+              <div class="bw-field"><span class="bw-lab">Adults</span><div class="bw-stepper"><button type="button" class="bw-step-btn" data-step="-1" aria-label="Fewer adults">&minus;</button><span class="bw-step-val" id="bwGuests" data-max="4">4</span><button type="button" class="bw-step-btn" data-step="1" aria-label="More adults">+</button></div></div>
+              <div class="bw-field"><span class="bw-lab">Check in</span><span class="bw-val" id="bwIn">Add date</span></div>
+              <div class="bw-field"><span class="bw-lab">Check out</span><span class="bw-val" id="bwOut">Add date</span></div>
+            </div>
+            <div class="bw-cal">
+              <div class="bw-cal-head"><button type="button" id="bwPrev" aria-label="Previous month">&#8249;</button><span id="bwMonth">August 2026</span><button type="button" id="bwNext" aria-label="Next month">&#8250;</button></div>
+              <div class="bw-grid" id="bwGrid"></div>
+            </div>
+            <div class="bw-foot">
+              <p class="bw-note"><span class="k">available</span> &nbsp; <span class="k off">booked</span> &nbsp;&middot;&nbsp; no payment now &mdash; the hosts confirm within a day</p>
+              <div class="bw-action"><span class="bw-summary" id="bwSummary">Select your dates</span><a class="btn" id="bwRequest" href="../book.html">Request to book</a></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head" style="margin-bottom:44px">
+        <span class="eyebrow">Guest words</span>
+        <h2 class="display-sm">Loved by the ones who <span class="script">stayed</span>.</h2>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>A beautiful oasis in a private compound, skillfully combining old and new. What&rsquo;s common is the care put into creating them.</p><footer>Harald &middot; Skopje</footer></blockquote>
+        <blockquote class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Rares and Gabie truly go the extra mile. The stay is incredibly tranquil and spotless &mdash; the perfect getaway.</p><footer>Katie &middot; Jacksonville</footer></blockquote>
+        <blockquote class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Everything was exactly as in the photos &mdash; clean, cosy, and that quiet, pleasant atmosphere we loved most.</p><footer>Tobias &middot; Germany</footer></blockquote>
+        <blockquote class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>One of those places that exceed your expectations. It has everything you need to disconnect and relax.</p><footer>Alexandra</footer></blockquote>
+        <blockquote class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>The pictures don&rsquo;t do this place justice. The hosts were lovely and friendly &mdash; perfect for relaxing in the hammocks.</p><footer>Richard</footer></blockquote>
+        <blockquote class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Beautiful surroundings, very private, and incredibly peaceful. The perfect place to unwind and enjoy nature.</p><footer>Cristian</footer></blockquote>
+      </div>
+    </section>
+  </main>
+
+  <div class="stay-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="All photos of The Transylvania Log Cabin">
+    <button class="stay-lightbox-close" id="lbClose" aria-label="Close photos">&times;</button>
+    <div class="stay-lightbox-grid">
+        <img src="../photos/log-cabin/01.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/02.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/03.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/04.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/05.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/06.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/07.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/08.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/09.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/10.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/11.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/12.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/13.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/14.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+        <img src="../photos/log-cabin/15.jpg" alt="The Transylvania Log Cabin" loading="lazy">
+    </div>
+  </div>
+
+  <div data-tlc-footer></div>
+  <script src="../ds/tlc.js?v=148"></script>
+  <script>TLC.init({ active:"stays", heroNav:false });</script>
+  <script>
+  (function(){var b=document.getElementById('showAll'),lb=document.getElementById('lightbox'),cl=document.getElementById('lbClose');if(!b||!lb)return;
+    function op(){lb.classList.add('open');document.body.classList.add('lightbox-open');}
+    function cx(){lb.classList.remove('open');document.body.classList.remove('lightbox-open');}
+    b.addEventListener('click',op);cl.addEventListener('click',cx);
+    lb.addEventListener('click',function(e){if(e.target===lb)cx();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')cx();});})();
+  </script>
+  <script>
+  (function(){
+    var MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var year=2026, month=7, ci=null, co=null;
+    var grid=document.getElementById('bwGrid'), ml=document.getElementById('bwMonth');
+    var inEl=document.getElementById('bwIn'), outEl=document.getElementById('bwOut'), sum=document.getElementById('bwSummary'), g=document.getElementById('bwGuests');
+    var gmax=+g.getAttribute('data-max')||2, adults=+g.textContent||gmax;
+    if(!grid) return;
+    function off(y,m,d){ return (((d*3)+(m*5))%8)<2; }
+    function cmp(a,b){ return (a.y-b.y)||(a.m-b.m)||(a.d-b.d); }
+    function fmt(o){ return o? (o.d+' '+MN[o.m].slice(0,3)) : 'Add date'; }
+    function render(){ ml.textContent=MN[month]+' '+year;
+      var h='<span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span><span class="dow">S</span>';
+      var lead=(new Date(year,month,1).getDay()+6)%7, days=new Date(year,month+1,0).getDate();
+      for(var i=0;i<lead;i++) h+='<span class="bw-day blank"></span>';
+      for(var d=1;d<=days;d++){ var o={y:year,m:month,d:d}, c='bw-day'+(off(year,month,d)?' off':'');
+        if(ci&&cmp(o,ci)===0) c+=' sel'; if(co&&cmp(o,co)===0) c+=' sel';
+        if(ci&&co&&cmp(o,ci)>0&&cmp(o,co)<0) c+=' inrange';
+        h+='<span class="'+c+'" data-d="'+d+'">'+d+'</span>'; } grid.innerHTML=h; }
+    function foot(){ inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci); outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
+      if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); sum.textContent=n+' night'+(n>1?'s':'')+' \u00b7 '+adults+' adult'+(adults>1?'s':''); } else sum.textContent='Select your dates'; }
+    grid.addEventListener('click',function(e){ var el=e.target.closest('.bw-day'); if(!el||el.classList.contains('blank')||el.classList.contains('off')) return;
+      var o={y:year,m:month,d:+el.dataset.d}; if(!ci||(ci&&co)){ ci=o; co=null; } else if(cmp(o,ci)>0){ co=o; } else { co=ci; ci=o; } render(); foot(); });
+    document.getElementById('bwPrev').addEventListener('click',function(){ month--; if(month<0){month=11;year--;} render(); });
+    document.getElementById('bwNext').addEventListener('click',function(){ month++; if(month>11){month=0;year++;} render(); });
+    Array.prototype.forEach.call(document.querySelectorAll('.bw-step-btn'),function(b){b.addEventListener('click',function(){adults=Math.max(1,Math.min(gmax,adults+(+b.getAttribute('data-step'))));g.textContent=adults;foot();});}); render(); foot();
+  })();
+  </script>
+</body>
+</html>

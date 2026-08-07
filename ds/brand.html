@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Brand system · Transylvania Log Cabins</title>
+  <meta name="description" content="The Transylvania Log Cabins brand system — palette, type, and content templates.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tlc.css">
+
+  <!-- Page-unique layout for the brand guide only (swatches, spec rows, template frames). -->
+  <style>
+    .bg-wrap{ max-width:1180px; margin:0 auto; padding:0 var(--gutter); }
+    .bg-top{ padding:80px var(--gutter) 40px; border-bottom:1px solid var(--line); }
+    .bg-block{ padding:64px var(--gutter); border-bottom:1px solid var(--line); }
+    .bg-label{ font-family:var(--font-body); font-weight:500; font-size:.72rem; letter-spacing:var(--track-label);
+      text-transform:uppercase; color:var(--ink-3); margin-bottom:32px; }
+    .bg-grid{ max-width:1180px; margin:0 auto; }
+
+    /* palette */
+    .swatches{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .swatch{ border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; }
+    .swatch .chip{ height:120px; }
+    .swatch .meta{ padding:14px; }
+    .swatch .meta b{ font-family:var(--font-body); font-weight:500; font-size:.86rem; display:block; }
+    .swatch .meta code{ font-family:var(--font-body); font-size:.76rem; color:var(--ink-3); }
+
+    /* type specimens */
+    .spec{ padding:22px 0; border-top:1px solid var(--line); display:grid;
+      grid-template-columns:160px 1fr; gap:28px; align-items:baseline; }
+    .spec:first-child{ border-top:0; }
+    .spec .k{ font-family:var(--font-body); font-size:.74rem; letter-spacing:.04em; color:var(--ink-3); }
+    .spec .k small{ display:block; margin-top:6px; color:var(--ink-3); }
+
+    /* component demo */
+    .demo-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; max-width:760px; }
+
+    /* social / poster templates */
+    .tpls{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; align-items:start; }
+    .tpl-frame{ }
+    .tpl-cap{ margin-top:12px; font-family:var(--font-body); font-size:.78rem; color:var(--ink-3); }
+    .tpl{ position:relative; overflow:hidden; border-radius:var(--r-sm); background:var(--ink);
+      display:flex; box-shadow:0 10px 40px rgba(14,14,12,.12); }
+    .tpl img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .tpl .veil{ position:absolute; inset:0; background:linear-gradient(180deg,rgba(14,14,12,.15),rgba(14,14,12,.66)); }
+    .tpl .in{ position:relative; z-index:2; color:var(--paper); padding:8%; width:100%;
+      display:flex; flex-direction:column; justify-content:flex-end; }
+    .tpl .kick{ font-family:var(--font-body); font-weight:500; font-size:.6rem; letter-spacing:var(--track-label);
+      text-transform:uppercase; color:rgba(251,250,247,.85); margin-bottom:auto; }
+    .tpl .big{ font-family:var(--font-display); font-weight:340; line-height:1.02; letter-spacing:-.01em; }
+    .tpl .sig{ font-family:var(--font-accent); font-style:italic; font-weight:500; color:var(--paper); line-height:1.05; }
+    .tpl-square{ aspect-ratio:1/1; }
+    .tpl-square .big{ font-size:2rem; }
+    .tpl-square .sig{ font-size:2.6rem; }
+    .tpl-story{ aspect-ratio:9/16; }
+    .tpl-story .big{ font-size:1.9rem; }
+    .tpl-story .sig{ font-size:2.4rem; }
+    .tpl-poster{ aspect-ratio:3/4; }
+    .tpl-poster .big{ font-size:2rem; }
+    .tpl-poster .sig{ font-size:2.4rem; }
+    .tpl-poster{ background:var(--paper); }
+    .tpl-poster .in{ color:var(--ink); justify-content:space-between; }
+    .tpl-poster .kick{ color:var(--ink-3); }
+    .tpl-poster .sig{ color:var(--ink); }
+    .tpl-poster .pmedia{ aspect-ratio:4/3; overflow:hidden; border-radius:var(--r-sm); margin:14px 0; position:relative; }
+    .tpl-poster .pmedia img{ position:static; }
+
+    /* accent picker */
+    .acc-picker{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:900px; }
+    .acc-opt{ border:1px solid var(--line); border-radius:var(--r-md); padding:26px 28px; }
+    .acc-opt.is-pick{ border-color:var(--ink); }
+    .acc-tag{ font-family:var(--font-body); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); }
+    .acc-opt.is-pick .acc-tag{ color:var(--ink); }
+    .acc-demo{ font-size:clamp(2rem,3.4vw,2.9rem); line-height:1.1; color:var(--ink); margin:14px 0 12px; }
+
+    @media (max-width:820px){
+      .acc-picker{ grid-template-columns:1fr; }
+      .swatches{ grid-template-columns:repeat(2,1fr); }
+      .spec{ grid-template-columns:1fr; gap:10px; }
+      .demo-grid{ grid-template-columns:1fr; }
+      .tpls{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Brand-guide header (this reference page uses its own light header, not the site nav) -->
+  <div class="bg-top">
+    <div class="bg-grid">
+      <span class="eyebrow">Brand system · v1 first draft</span>
+      <h1 class="display" style="margin-top:16px">Transylvania Log Cabins</h1>
+      <p class="lead" style="margin-top:20px;max-width:52ch">The system your content is built from — website, posters, social. Reuse these pieces and everything stays on brand by default.</p>
+      <p class="script" style="margin-top:24px">Private by nature</p>
+    </div>
+  </div>
+
+  <!-- POSITIONING -->
+  <section class="bg-block">
+    <div class="bg-grid">
+      <div class="bg-label">The belief</div>
+      <div style="max-width:20ch">
+        <p class="display-sm">True luxury is having nothing between you and nature.</p>
+      </div>
+      <div class="demo-grid" style="margin-top:44px">
+        <div>
+          <div class="bg-label" style="margin-bottom:14px">Promise</div>
+          <p class="prose">Fewer people. More space. Deeper rest.</p>
+        </div>
+        <div>
+          <div class="bg-label" style="margin-bottom:14px">Values — decision filters</div>
+          <p class="prose">Privacy · Stillness · Nature · Excellence · Care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALETTE -->
+  <section class="bg-block">
+    <div class="bg-grid">
+      <div class="bg-label">Palette — monochrome only. The photography is the colour.</div>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:#0E0E0C"></div>
+          <div class="meta"><b>Ink</b><code>#0E0E0C</code></div></div>
+        <div class="swatch"><div class="chip" style="background:#55534E"></div>
+          <div class="meta"><b>Ink 2</b><code>#55534E</code></div></div>
+        <div class="swatch"><div class="chip" style="background:#8A8880"></div>
+          <div class="meta"><b>Ink 3</b><code>#8A8880</code></div></div>
+        <div class="swatch"><div class="chip" style="background:#FBFAF7;border-bottom:1px solid var(--line)"></div>
+          <div class="meta"><b>Paper</b><code>#FBFAF7</code></div></div>
+      </div>
+      <p class="caption" style="margin-top:20px;max-width:60ch">There is deliberately no brand accent colour. Links use ink + an underline; drama comes from inverting to a black section, never from a hue. Colour enters only through the images.</p>
+    </div>
+  </section>
+
+  <!-- TYPE -->
+  <section class="bg-block">
+    <div class="bg-grid">
+      <div class="bg-label">Typography — big vs small, and one italic accent</div>
+
+      <div class="spec"><div class="k">Display XL<small>Fraunces · hero</small></div>
+        <div class="display-xl">Silence is the luxury.</div></div>
+      <div class="spec"><div class="k">Display<small>Fraunces · section heads</small></div>
+        <div class="display">Fewer people, <span class="script">more</span> space.</div></div>
+      <div class="spec"><div class="k">Display sm<small>Fraunces · sub-heads</small></div>
+        <div class="display-sm">A private collection of cabins and treehouses.</div></div>
+      <div class="spec"><div class="k">Title<small>Fraunces · card titles</small></div>
+        <div class="title">The Treehouse</div></div>
+      <div class="spec"><div class="k">Lead<small>Inter · intros</small></div>
+        <div class="lead" style="max-width:52ch">The estate intentionally welcomes fewer guests, because privacy — not entertainment — is the ultimate luxury.</div></div>
+      <div class="spec"><div class="k">Body / prose<small>Inter</small></div>
+        <div class="prose" style="max-width:52ch">Space to breathe. Silence to think. Nature to return to. Care that never intrudes.</div></div>
+      <div class="spec"><div class="k">Eyebrow<small>Inter · tracked caps</small></div>
+        <div><span class="eyebrow">Adults-only retreat · Transylvania</span></div></div>
+      <div class="spec"><div class="k">Italic accent<small>Cormorant · signature only</small></div>
+        <div class="script">Private by nature</div></div>
+    </div>
+  </section>
+
+  <!-- ACCENT PICKER — choose the fashion-editorial italic -->
+  <section class="bg-block">
+    <div class="bg-grid">
+      <div class="bg-label">Pick the accent italic — tell me the number</div>
+      <div class="acc-picker">
+        <div class="acc-opt is-pick">
+          <span class="acc-tag">1 · Cormorant &nbsp;<b>(my pick)</b></span>
+          <div class="acc-demo" style="font-family:'Cormorant',serif;font-style:italic;font-weight:500">Private by nature</div>
+          <p class="caption">Delicate, high-contrast, romantic. Couture without shouting.</p>
+        </div>
+        <div class="acc-opt">
+          <span class="acc-tag">2 · Bodoni Moda</span>
+          <div class="acc-demo" style="font-family:'Bodoni Moda',serif;font-style:italic;font-weight:500">Private by nature</div>
+          <p class="caption">Maximum <em>Vogue</em>. Sharp, dramatic Didone contrast.</p>
+        </div>
+        <div class="acc-opt">
+          <span class="acc-tag">3 · Playfair Display</span>
+          <div class="acc-demo" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:500">Private by nature</div>
+          <p class="caption">Classic editorial italic. Warm, legible, safe.</p>
+        </div>
+        <div class="acc-opt">
+          <span class="acc-tag">4 · Fraunces italic</span>
+          <div class="acc-demo" style="font-family:'Fraunces',serif;font-style:italic;font-weight:400">Private by nature</div>
+          <p class="caption">Same family as the headlines — most cohesive, softest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUTTONS + LOGO -->
+  <section class="bg-block">
+    <div class="bg-grid">
+      <div class="bg-label">Buttons, links &amp; wordmark placeholder</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+        <a class="btn" href="#">Book a stay</a>
+        <a class="btn-line" href="#">View the cabins</a>
+        <a class="link-underline" href="#">Read the philosophy</a>
+      </div>
+
+      <div style="margin-top:44px" class="bg-label">Wordmark (placeholder until a real logo exists)</div>
+      <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:center">
+        <a class="tlc-brand" href="#" style="font-size:1.4rem">Transylvania Log Cabins<small>Private by nature</small></a>
+        <div style="background:var(--ink);padding:26px 30px;border-radius:var(--r-md)">
+          <a class="tlc-brand" href="#" style="font-size:1.4rem;color:var(--paper)">Transylvania Log Cabins<small style="color:rgba(251,250,247,.6)">Private by nature</small></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS PREVIEW -->
+  <section class="bg-block">
+    <div class="bg-grid">
+      <div class="bg-label">A few components (full set lives in the site pages)</div>
+      <div class="demo-grid">
+        <a class="stay-card" href="#">
+          <div class="stay-card-media">
+            <img src="https://images.pexels.com/photos/803975/pexels-photo-803975.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Cabin in the forest">
+            <span class="stay-card-tag">Cabin · sleeps 2</span>
+          </div>
+          <div class="stay-card-head"><span class="title">The Forest Cabin</span><span class="stay-card-price">from €240 / night</span></div>
+          <p class="stay-card-meta">Adults only · private deck · wood stove</p>
+        </a>
+        <a class="stay-card" href="#">
+          <div class="stay-card-media">
+            <img src="https://images.pexels.com/photos/460695/pexels-photo-460695.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Treehouse among trees">
+            <span class="stay-card-tag">Treehouse · sleeps 2</span>
+          </div>
+          <div class="stay-card-head"><span class="title">The Treehouse</span><span class="stay-card-price">from €290 / night</span></div>
+          <p class="stay-card-meta">Adults only · canopy views · outdoor bath</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL / POSTER TEMPLATES -->
+  <section class="bg-block" style="border-bottom:0">
+    <div class="bg-grid">
+      <div class="bg-label">Content templates — duplicate, swap the image + words, post</div>
+      <div class="tpls">
+
+        <div class="tpl-frame">
+          <div class="tpl tpl-square">
+            <img src="https://images.pexels.com/photos/803975/pexels-photo-803975.jpeg?auto=compress&cs=tinysrgb&w=900" alt="">
+            <div class="veil"></div>
+            <div class="in">
+              <div class="kick">Transylvania · adults only</div>
+              <div class="big">Nothing between you<br>and the forest.</div>
+              <div class="sig" style="margin-top:10px">Private by nature</div>
+            </div>
+          </div>
+          <p class="tpl-cap">Instagram post · 1080 × 1080</p>
+        </div>
+
+        <div class="tpl-frame">
+          <div class="tpl tpl-story">
+            <img src="https://images.pexels.com/photos/460695/pexels-photo-460695.jpeg?auto=compress&cs=tinysrgb&w=900" alt="">
+            <div class="veil"></div>
+            <div class="in">
+              <div class="kick">Now taking bookings</div>
+              <div class="big">Silence<br>is the<br>luxury.</div>
+              <div class="sig" style="margin-top:10px">Private by nature</div>
+            </div>
+          </div>
+          <p class="tpl-cap">Instagram story · 1080 × 1920</p>
+        </div>
+
+        <div class="tpl-frame">
+          <div class="tpl tpl-poster">
+            <div class="in">
+              <div>
+                <div class="kick">A private nature retreat</div>
+                <div class="big" style="margin-top:8px">Fewer people.<br>More space.<br>Deeper rest.</div>
+              </div>
+              <div class="pmedia"><img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=900" alt=""></div>
+              <div style="display:flex;justify-content:space-between;align-items:flex-end">
+                <div class="tlc-brand" style="font-size:1rem">Transylvania Log Cabins<small>transylvanialogcabins.com</small></div>
+                <div class="sig">Private by nature</div>
+              </div>
+            </div>
+          </div>
+          <p class="tpl-cap">Print poster · 3 : 4</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

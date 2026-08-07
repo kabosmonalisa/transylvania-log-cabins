@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Accent options · Transylvania Log Cabins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&family=Cormorant:ital,wght@1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tlc.css">
+  <style>
+    body{ background:var(--paper); }
+    .ac-head{ padding:32px var(--gutter) 10px; max-width:1280px; margin:0 auto; }
+    .ac-grid{ max-width:1280px; margin:0 auto; padding:14px var(--gutter) 48px;
+      display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .ac-card{ border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; background:var(--surface); }
+    .ac-card.pick{ border-color:var(--ink); box-shadow:0 0 0 1px var(--ink); }
+    .ac-top{ padding:22px 26px 6px; display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+    .ac-num{ font-family:var(--font-body); font-weight:500; font-size:.78rem; letter-spacing:.06em;
+      text-transform:uppercase; color:var(--ink); }
+    .ac-note{ font-family:var(--font-body); font-size:.76rem; color:var(--ink-3); }
+    /* demo 1 — the standalone signature, big */
+    .ac-sig{ padding:6px 26px 8px; font-style:italic; font-weight:500;
+      font-size:clamp(2.2rem,3.6vw,3.1rem); line-height:1.05; color:var(--ink); }
+    /* demo 2 — inline accent word in a Fraunces headline */
+    .ac-line{ padding:0 26px 16px; font-family:var(--font-display); font-weight:340;
+      font-size:1.5rem; line-height:1.15; color:var(--ink); letter-spacing:-.01em; }
+    .ac-line em{ font-weight:500; }
+    /* demo 3 — on a dark strip, like a poster corner */
+    .ac-dark{ background:var(--invert-bg); color:var(--invert-ink); padding:16px 26px;
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+    .ac-dark .brand{ font-family:var(--font-display); font-weight:360; font-size:.95rem; }
+    .ac-dark .sig{ font-style:italic; font-weight:500; font-size:1.5rem; color:var(--invert-ink); }
+
+    /* per-option font assignment */
+    .f-cormorant .ac-sig,.f-cormorant .ac-line em,.f-cormorant .ac-dark .sig{ font-family:"Cormorant",serif; }
+    .f-bodoni   .ac-sig,.f-bodoni   .ac-line em,.f-bodoni   .ac-dark .sig{ font-family:"Bodoni Moda",serif; }
+    .f-playfair .ac-sig,.f-playfair .ac-line em,.f-playfair .ac-dark .sig{ font-family:"Playfair Display",serif; }
+    .f-fraunces .ac-sig,.f-fraunces .ac-line em,.f-fraunces .ac-dark .sig{ font-family:"Fraunces",serif; font-weight:400; }
+
+    @media (max-width:760px){ .ac-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ac-head">
+    <span class="eyebrow">Choose the accent · say the number</span>
+    <h1 class="display-sm" style="margin-top:10px">Which italic feels like us?</h1>
+  </div>
+
+  <div class="ac-grid">
+
+    <!-- 1 CORMORANT -->
+    <div class="ac-card pick f-cormorant">
+      <div class="ac-top"><span class="ac-num">1 · Cormorant — my pick</span><span class="ac-note">quiet luxury</span></div>
+      <div class="ac-sig">Private by nature</div>
+      <div class="ac-line">Fewer people, <em>more</em> space.</div>
+      <div class="ac-dark"><span class="brand">Transylvania Log Cabins</span><span class="sig">Private by nature</span></div>
+    </div>
+
+    <!-- 2 BODONI MODA -->
+    <div class="ac-card f-bodoni">
+      <div class="ac-top"><span class="ac-num">2 · Bodoni Moda</span><span class="ac-note">max Vogue drama</span></div>
+      <div class="ac-sig">Private by nature</div>
+      <div class="ac-line">Fewer people, <em>more</em> space.</div>
+      <div class="ac-dark"><span class="brand">Transylvania Log Cabins</span><span class="sig">Private by nature</span></div>
+    </div>
+
+    <!-- 3 PLAYFAIR -->
+    <div class="ac-card f-playfair">
+      <div class="ac-top"><span class="ac-num">3 · Playfair Display</span><span class="ac-note">classic editorial</span></div>
+      <div class="ac-sig">Private by nature</div>
+      <div class="ac-line">Fewer people, <em>more</em> space.</div>
+      <div class="ac-dark"><span class="brand">Transylvania Log Cabins</span><span class="sig">Private by nature</span></div>
+    </div>
+
+    <!-- 4 FRAUNCES ITALIC -->
+    <div class="ac-card f-fraunces">
+      <div class="ac-top"><span class="ac-num">4 · Fraunces italic</span><span class="ac-note">most cohesive</span></div>
+      <div class="ac-sig">Private by nature</div>
+      <div class="ac-line">Fewer people, <em>more</em> space.</div>
+      <div class="ac-dark"><span class="brand">Transylvania Log Cabins</span><span class="sig">Private by nature</span></div>
+    </div>
+
+  </div>
+</body>
+</html>
