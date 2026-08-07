@@ -44,9 +44,11 @@ window.TLC = (function () {
 
   function base(){
     // pages in /stays/ link one level up; root pages link "."
-    return location.pathname.replace(/\/[^\/]*$/, "").split("/").filter(Boolean).length > 0
-      && /\/stays\//.test(location.pathname) ? ".." : ".";
+    return /\/stays\//.test(location.pathname) ? ".." : ".";
   }
+  // Rewrite a root-absolute internal path ("/book.html") to be relative to the current
+  // page, so the site works at ANY base path — local root AND a GitHub Pages subpath.
+  function rel(href){ return href && href.charAt(0) === "/" ? base() + href : href; }
 
   function renderNav(root, opts){
     var active = opts.active || "";
@@ -58,25 +60,25 @@ window.TLC = (function () {
     }).map(function (l) {
       if (l.children) {
         var sub = l.children.map(function (ch) {
-          return '<a href="' + ch.href + '"><span class="td-name">' + ch.label + '</span>' +
+          return '<a href="' + rel(ch.href) + '"><span class="td-name">' + ch.label + '</span>' +
             (ch.meta ? '<span class="td-meta">' + ch.meta + '</span>' : '') + '</a>';
         }).join("");
-        return '<div class="tlc-drop-wrap"><a href="' + l.href + '" class="tlc-drop-trigger">' + l.label +
+        return '<div class="tlc-drop-wrap"><a href="' + rel(l.href) + '" class="tlc-drop-trigger">' + l.label +
           '<svg class="tlc-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>' +
           '<div class="tlc-drop">' + sub + '</div></div>';
       }
-      return '<a href="' + l.href + '" class="">' + l.label + '</a>';
+      return '<a href="' + rel(l.href) + '" class="">' + l.label + '</a>';
     }).join("");
 
     root.innerHTML =
       '<header class="tlc-nav' + (heroNav ? " on-hero" : "") + '">' +
         '<div class="tlc-nav-inner">' +
-          '<a class="tlc-brand" href="/index.html">' + BRAND_HTML + '</a>' +
+          '<a class="tlc-brand" href="' + rel("/index.html") + '">' + BRAND_HTML + '</a>' +
           '<nav class="tlc-links">' + links + '</nav>' +
           // Right cluster: language switcher (placeholder) + the Book CTA, anchored far right.
           '<div class="tlc-nav-right">' +
             '<div class="tlc-lang"><button type="button" class="is-on">EN</button><button type="button">RO</button></div>' +
-            (book ? '<a class="btn tlc-nav-book" href="' + book.href + '">' + book.label + '</a>' : '') +
+            (book ? '<a class="btn tlc-nav-book" href="' + rel(book.href) + '">' + book.label + '</a>' : '') +
           '</div>' +
           '<button class="tlc-burger" aria-label="Open menu"><span></span><span></span><span></span></button>' +
         '</div>' +
@@ -84,9 +86,9 @@ window.TLC = (function () {
       '<div class="tlc-drawer" role="dialog" aria-modal="true">' +
         '<button class="tlc-drawer-close" aria-label="Close menu">&times;</button>' +
         NAV_LINKS.map(function (l) {
-          var m = '<a href="' + l.href + '"' + (l.btn ? ' class="btn"' : '') + '>' + l.label + '</a>';
+          var m = '<a href="' + rel(l.href) + '"' + (l.btn ? ' class="btn"' : '') + '>' + l.label + '</a>';
           if (l.children) m += l.children.map(function (ch) {
-            return '<a class="tlc-drawer-sub" href="' + ch.href + '">' + ch.label + '</a>';
+            return '<a class="tlc-drawer-sub" href="' + rel(ch.href) + '">' + ch.label + '</a>';
           }).join("");
           return m;
         }).join("") +
@@ -103,13 +105,13 @@ window.TLC = (function () {
             '<span class="eyebrow">Private by nature &middot; book direct</span>' +
             '<h2 class="display">Come find the <span class="script">quiet</span>.</h2>' +
             '<p class="lead">A private, adults-only retreat in wild Transylvania &mdash; fewer people, more space, deeper rest. Book straight with your hosts, no platform fees.</p>' +
-            '<a class="btn" href="/book.html">Check dates &amp; book</a>' +
+            '<a class="btn" href="' + rel("/book.html") + '">Check dates &amp; book</a>' +
           '</div>' +
           '<div class="tlc-footer-foot">' +
-            '<a class="tlc-brand" href="/index.html">' + BRAND_HTML + '</a>' +
+            '<a class="tlc-brand" href="' + rel("/index.html") + '">' + BRAND_HTML + '</a>' +
             '<nav class="tlc-footer-nav">' +
-              '<a href="/index.html#collection">The Cabins</a>' +
-              '<a href="/book.html">Book a stay</a>' +
+              '<a href="' + rel("/index.html#collection") + '">The Cabins</a>' +
+              '<a href="' + rel("/book.html") + '">Book a stay</a>' +
               '<a href="#">Our story</a>' +
             '</nav>' +
             '<div class="tlc-footer-social">' +
