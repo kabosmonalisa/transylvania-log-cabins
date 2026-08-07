@@ -924,8 +924,11 @@ body.lightbox-open{ overflow:hidden; }
 /* All-caps wordmark has no descenders, so its optical center rides ~2px high vs the
    mixed-case nav + icons — nudge it onto the shared centerline for perfect alignment. */
 .tlc-footer-foot .tlc-brand{ transform:translateY(2px); }
-@media (max-width:760px){ .tlc-footer-foot{ grid-template-columns:1fr; justify-items:center; text-align:center; gap:26px; }
-  .tlc-footer-nav, .tlc-footer-social{ justify-self:center; } }
+/* Below 900px the single row can't hold brand + 4 nav items + icons without the nav
+   wrapping (which breaks the shared centerline) — stack them, centered, instead. */
+@media (max-width:900px){ .tlc-footer-foot{ grid-template-columns:1fr; justify-items:center; text-align:center; gap:26px; }
+  .tlc-footer-nav, .tlc-footer-social{ justify-self:center; }
+  .tlc-footer-foot .tlc-brand{ transform:none; } }
 .tlc-footer-nav{ display:flex; gap:clamp(18px,2.6vw,36px); flex-wrap:wrap; }
 .tlc-footer-nav a{ color:rgba(251,250,247,.66); font-family:var(--font-body); font-size:.76rem;
   letter-spacing:.12em; text-transform:uppercase; text-decoration:none; transition:color .2s ease; }
