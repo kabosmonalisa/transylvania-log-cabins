@@ -226,7 +226,7 @@ body{
 }
 /* Timber flourish flanking LOG — a small cluster of thin vertical "log" strokes */
 .tlc-brand .lm{ display:inline-block; height:1.75em; width:auto; margin:0 .5em;
-  vertical-align:baseline; opacity:.65; }
+  vertical-align:middle; opacity:.65; }
 .tlc-brand .tlc-log{ letter-spacing:.26em; padding-left:.26em; }
 .tlc-brand small{
   font-family:var(--font-body); font-weight:500; font-size:.6rem;
@@ -285,17 +285,34 @@ body{
 .tlc-nav.on-hero .tlc-burger{ color:var(--paper); }
 .tlc-nav.is-fixed .tlc-burger{ color:var(--ink); }
 .tlc-drawer{
-  position:fixed; inset:0; z-index:60; background:var(--paper);
-  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px;
+  position:fixed; inset:0; z-index:60; background:var(--paper); overflow-y:auto;
   transform:translateY(-100%); transition:transform .45s var(--ease); visibility:hidden;
 }
 .tlc-drawer.open{ transform:translateY(0); visibility:visible; }
-.tlc-drawer a{
-  font-family:var(--font-display); font-weight:360; font-size:2rem; color:var(--ink);
-  text-decoration:none; padding:10px 0;
-}
-.tlc-drawer .btn{ margin-top:18px; font-size:.9rem; }
-.tlc-drawer-close{ position:absolute; top:24px; right:24px; background:none; border:0; font-size:1.6rem; cursor:pointer; color:var(--ink); }
+.tlc-drawer-inner{ min-height:100%; display:flex; flex-direction:column; align-items:stretch;
+  padding:30px var(--gutter) 40px; }
+/* Brand at the top of the menu for continuity */
+.tlc-drawer-brand{ align-self:flex-start; font-size:.82rem; color:var(--ink); text-decoration:none; margin-bottom:54px; }
+/* Category label — "The Cabins" grouping the stays */
+.tlc-drawer-cat{ display:block; font-family:var(--font-body); font-size:.7rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:16px; }
+.tlc-drawer-group{ margin-bottom:38px; }
+/* Each stay — serif name on the left, small capacity tag on the right */
+.tlc-drawer-stay{ display:flex; align-items:baseline; justify-content:space-between; gap:18px;
+  text-decoration:none; padding:9px 0; }
+.tlc-drawer-stay-name{ font-family:var(--font-display); font-size:1.5rem; line-height:1.15; color:var(--ink);
+  transition:opacity .18s ease; }
+.tlc-drawer-stay:hover .tlc-drawer-stay-name{ opacity:.6; }
+.tlc-drawer-meta{ font-family:var(--font-body); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-3); white-space:nowrap; }
+/* Standalone links (Events, Our story), set off by a hairline */
+.tlc-drawer-links{ display:flex; flex-direction:column; padding-top:30px; border-top:1px solid var(--line); }
+.tlc-drawer-link{ font-family:var(--font-display); font-size:1.5rem; line-height:1.15; color:var(--ink);
+  text-decoration:none; padding:9px 0; transition:opacity .18s ease; }
+.tlc-drawer-link:hover{ opacity:.6; }
+.tlc-drawer-book{ margin-top:36px; width:100%; justify-content:center; text-align:center; font-size:.9rem; }
+.tlc-drawer-close{ position:absolute; top:26px; right:24px; z-index:2; background:none; border:0; font-size:1.7rem; line-height:1; cursor:pointer; color:var(--ink); }
+.tlc-lang-drawer{ align-self:flex-start; margin-top:30px; }
 body.drawer-open{ overflow:hidden; }
 
 /* ===== 7. FOOTER ========================================================= */
@@ -904,6 +921,9 @@ body.lightbox-open{ overflow:hidden; }
   margin-top:clamp(44px,5vw,72px); border-top:1px solid rgba(251,250,247,.14); }
 .tlc-footer-nav{ justify-self:center; }
 .tlc-footer-social{ justify-self:end; }
+/* All-caps wordmark has no descenders, so its optical center rides ~2px high vs the
+   mixed-case nav + icons — nudge it onto the shared centerline for perfect alignment. */
+.tlc-footer-foot .tlc-brand{ transform:translateY(2px); }
 @media (max-width:760px){ .tlc-footer-foot{ grid-template-columns:1fr; justify-items:center; text-align:center; gap:26px; }
   .tlc-footer-nav, .tlc-footer-social{ justify-self:center; } }
 .tlc-footer-nav{ display:flex; gap:clamp(18px,2.6vw,36px); flex-wrap:wrap; }

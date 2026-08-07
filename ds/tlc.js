@@ -20,6 +20,7 @@ window.TLC = (function () {
       { label: "The Loft Treehouse",     href: "/stays/loft-treehouse.html", meta: "Sleeps 2" },
       { label: "The Barn Ensuite",       href: "/stays/barn-ensuite.html",   meta: "Sleeps 2" }
     ] },
+    { key: "events", label: "Events",     href: "#" },
     { key: "story",  label: "Our story",   href: "#" },
     { key: "book",   label: "Book",        href: "/book.html", btn: true }
   ];
@@ -85,14 +86,24 @@ window.TLC = (function () {
       '</header>' +
       '<div class="tlc-drawer" role="dialog" aria-modal="true">' +
         '<button class="tlc-drawer-close" aria-label="Close menu">&times;</button>' +
-        NAV_LINKS.map(function (l) {
-          var m = '<a href="' + rel(l.href) + '"' + (l.btn ? ' class="btn"' : '') + '>' + l.label + '</a>';
-          if (l.children) m += l.children.map(function (ch) {
-            return '<a class="tlc-drawer-sub" href="' + rel(ch.href) + '">' + ch.label + '</a>';
-          }).join("");
-          return m;
-        }).join("") +
-        '<div class="tlc-lang tlc-lang-drawer"><button type="button" class="is-on">EN</button><button type="button">RO</button></div>' +
+        '<div class="tlc-drawer-inner">' +
+          '<a class="tlc-brand tlc-drawer-brand" href="' + rel("/index.html") + '">' + BRAND_HTML + '</a>' +
+          NAV_LINKS.map(function (l) {
+            if (!l.children) return "";
+            return '<div class="tlc-drawer-group"><span class="tlc-drawer-cat">' + l.label + '</span>' +
+              l.children.map(function (ch) {
+                return '<a class="tlc-drawer-stay" href="' + rel(ch.href) + '"><span class="tlc-drawer-stay-name">' + ch.label + '</span>' +
+                  (ch.meta ? '<span class="tlc-drawer-meta">' + ch.meta + '</span>' : '') + '</a>';
+              }).join("") + '</div>';
+          }).join("") +
+          '<div class="tlc-drawer-links">' +
+            NAV_LINKS.filter(function (l) { return !l.children && !l.btn; }).map(function (l) {
+              return '<a class="tlc-drawer-link" href="' + rel(l.href) + '">' + l.label + '</a>';
+            }).join("") +
+          '</div>' +
+          (book ? '<a class="btn tlc-drawer-book" href="' + rel(book.href) + '">Book a stay</a>' : '') +
+          '<div class="tlc-lang tlc-lang-drawer"><button type="button" class="is-on">EN</button><button type="button">RO</button></div>' +
+        '</div>' +
       '</div>';
   }
 
@@ -112,6 +123,7 @@ window.TLC = (function () {
             '<nav class="tlc-footer-nav">' +
               '<a href="' + rel("/index.html#collection") + '">The Cabins</a>' +
               '<a href="' + rel("/book.html") + '">Book a stay</a>' +
+              '<a href="#">Events</a>' +
               '<a href="#">Our story</a>' +
             '</nav>' +
             '<div class="tlc-footer-social">' +
