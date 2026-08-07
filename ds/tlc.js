@@ -157,6 +157,36 @@ window.TLC = (function () {
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  // Thank-you modal — fires when a booking request is sent (any .bw request button).
+  function initThankYou(){
+    var triggers = document.querySelectorAll('.bw-action .btn');
+    if (!triggers.length) return;
+    var overlay = document.createElement('div');
+    overlay.className = 'tlc-modal-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML =
+      '<div class="tlc-modal">' +
+        '<button class="tlc-modal-close" aria-label="Close">&times;</button>' +
+        '<div class="tlc-modal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>' +
+        '<span class="eyebrow">Request received</span>' +
+        '<h2>Thank you.</h2>' +
+        '<p>Your request is with Rares &amp; Gabie. They&rsquo;ll get back to you within a day to confirm your dates &mdash; no payment until then.</p>' +
+        '<button class="btn" type="button" data-modal-close>Close</button>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    function open(){ overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); document.body.classList.add('modal-open'); }
+    function shut(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); document.body.classList.remove('modal-open'); }
+    Array.prototype.forEach.call(triggers, function (b) {
+      b.addEventListener('click', function (e) { e.preventDefault(); open(); });
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || e.target.hasAttribute('data-modal-close') || (e.target.closest && e.target.closest('.tlc-modal-close'))) shut();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') shut(); });
+  }
+
   function init(opts){
     opts = opts || {};
     var navRoot = document.querySelector("[data-tlc-nav]");
@@ -165,6 +195,7 @@ window.TLC = (function () {
     if (footRoot) renderFooter(footRoot, opts);
     initDrawer();
     initFixedHeader(!!opts.heroNav);
+    initThankYou();
     if (!document.querySelector('.tlc-wa-fab')) {
       var wa = document.createElement('a');
       wa.className = 'tlc-wa-fab'; wa.href = 'https://wa.me/' + WA_NUMBER;

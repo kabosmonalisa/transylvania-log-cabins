@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ds/tlc.css?v=149">
+  <link rel="stylesheet" href="ds/tlc.css?v=152">
 </head>
 <body>
   <div data-tlc-nav data-active="book"></div>
@@ -23,8 +23,8 @@
     </section>
 
     <section class="section" style="padding-top:0">
-      <div class="book-layout">
-        <div>
+      <div class="book-layout" data-step="1">
+        <div class="book-col-stay">
           <div class="book-step"><span class="book-step-num">1</span><span class="book-step-title">Choose your stay</span></div>
           <div class="book-picks">
             <label class="book-pick">
@@ -98,8 +98,10 @@
               </span>
             </label>
           </div>
+          <button type="button" class="btn book-continue" id="bookContinue">Continue to dates &rarr;</button>
         </div>
         <aside>
+          <button type="button" class="book-back" id="bookBack">&larr; Change stay</button>
           <div class="book-step"><span class="book-step-num">2</span><span class="book-step-title">Pick your dates</span></div>
           <div class="bw bw-side">
             <div class="bw-selected" id="bwStay">The Transylvania Log Cabin</div>
@@ -134,7 +136,7 @@
     </section>
   </main>
   <div data-tlc-footer></div>
-  <script src="ds/tlc.js?v=149"></script>
+  <script src="ds/tlc.js?v=152"></script>
   <script>TLC.init({ active:"book", heroNav:false });</script>
   <script>
   (function(){
@@ -165,6 +167,12 @@
     Array.prototype.forEach.call(document.querySelectorAll('input[name=stay]'),function(r){ r.addEventListener('change',function(){ if(!r.checked) return;
       stayLabel.textContent=r.getAttribute('data-name'); gmax=+r.getAttribute('data-cap'); adults=Math.min(adults,gmax); g.setAttribute('data-max',gmax); g.textContent=adults; foot(); }); });
     render(); foot();
+    // Mobile wizard: step 1 (choose) -> step 2 (dates) as separate screens.
+    var layout=document.querySelector('.book-layout');
+    var cont=document.getElementById('bookContinue'), back=document.getElementById('bookBack');
+    function goStep(n){ layout.setAttribute('data-step',n); var y=layout.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:Math.max(0,y),behavior:'smooth'}); }
+    if(cont) cont.addEventListener('click',function(){ goStep('2'); });
+    if(back) back.addEventListener('click',function(){ goStep('1'); });
   })();
   </script>
   <script>

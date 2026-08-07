@@ -46,6 +46,7 @@
        The mobile override below rescales the entire site at once. — */
   --section-y:        112px;
   --section-y-tight:   72px;
+  --nav-clear:        140px;  /* extra top pad so first content clears the overlaid nav */
   --hero-min:         92vh;   /* full-bleed hero height */
 
   /* — Type — */
@@ -63,10 +64,13 @@
 
 @media (max-width: 760px){
   :root{
-    --section-y:      68px;
-    --section-y-tight:48px;
+    --section-y:      54px;
+    --section-y-tight:38px;
     --gutter:         22px;
     --hero-min:       86vh;
+    /* Nav is ~94px tall on mobile — clear it with a little air, not the desktop +140px
+       (which left a big dead gap under the nav on phones). */
+    --nav-clear:      58px;
   }
 }
 
@@ -383,7 +387,7 @@ body.drawer-open{ overflow:hidden; }
 .hero-closer .hero-actions{ justify-content:center; margin-top:30px; }
 
 /* 9a-2. Editorial hero (Advisorie composition): headline on light ground, image below */
-.ed-hero{ padding:calc(var(--section-y) + 140px) var(--gutter) var(--section-y); }
+.ed-hero{ padding:calc(var(--section-y) + var(--nav-clear)) var(--gutter) var(--section-y); }
 .ed-hero-top{ display:grid; grid-template-columns:1.75fr 1fr; gap:clamp(32px,6vw,90px);
   align-items:end; max-width:var(--container); margin:0 auto; }
 .ed-hero .eyebrow{ display:block; margin-bottom:26px; }
@@ -717,7 +721,7 @@ body.drawer-open{ overflow:hidden; }
 /* Interior pages: the absolute nav overlays the top, so the first plain section
    must clear it (ed-hero pages already pad for this themselves). */
 [data-tlc-nav] + main > section:first-child:not(.ed-hero){
-  padding-top:calc(var(--section-y) + 140px);
+  padding-top:calc(var(--section-y) + var(--nav-clear));
 }
 
 /* Custom cursors — a "view" ring (↗) on image links, a "drag" ring (‹ ›) on carousels */
@@ -991,3 +995,38 @@ body.lightbox-open{ overflow:hidden; }
 .food-car-btn:hover{ background:rgba(20,20,18,.06); }
 @media (max-width:900px){ .food-carousel figure{ flex-basis:calc((100% - 16px)/2.2); } }
 @media (max-width:560px){ .food-carousel figure{ flex-basis:82%; } }
+
+/* ===== Thank-you modal (request confirmation) ============================= */
+.tlc-modal-overlay{ position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center;
+  padding:24px; background:rgba(20,20,18,.55); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px);
+  opacity:0; visibility:hidden; transition:opacity .28s ease, visibility .28s ease; }
+.tlc-modal-overlay.open{ opacity:1; visibility:visible; }
+.tlc-modal{ position:relative; width:100%; max-width:460px; background:var(--paper); border-radius:var(--r-md);
+  padding:clamp(34px,5vw,54px) clamp(26px,4vw,46px); text-align:center;
+  box-shadow:0 30px 90px rgba(20,20,18,.30); transform:translateY(14px) scale(.98);
+  transition:transform .28s cubic-bezier(.2,.7,.3,1); }
+.tlc-modal-overlay.open .tlc-modal{ transform:none; }
+.tlc-modal-check{ width:58px; height:58px; margin:0 auto 26px; border-radius:50%; background:var(--ink);
+  display:flex; align-items:center; justify-content:center; }
+.tlc-modal-check svg{ width:27px; height:27px; stroke:var(--paper); }
+.tlc-modal .eyebrow{ display:block; margin-bottom:12px; }
+.tlc-modal h2{ font-family:var(--font-display); font-size:clamp(1.7rem,3vw,2.1rem); line-height:1.1; margin:0 0 14px; color:var(--ink); }
+.tlc-modal p{ color:var(--ink-2); line-height:1.62; margin:0 auto 30px; max-width:36ch; }
+.tlc-modal .btn{ min-width:150px; justify-content:center; text-align:center; }
+.tlc-modal-close{ position:absolute; top:12px; right:14px; width:34px; height:34px; border:none; background:none;
+  font-size:1.5rem; line-height:1; color:var(--ink-3); cursor:pointer; transition:color .18s ease; }
+.tlc-modal-close:hover{ color:var(--ink); }
+body.modal-open{ overflow:hidden; }
+
+/* ===== Booking wizard — two separate screens on mobile ==================== */
+.book-continue, .book-back{ display:none; }
+@media (max-width:900px){
+  .book-continue{ display:inline-flex; justify-content:center; width:100%; margin-top:30px; }
+  .book-back{ display:inline-flex; align-items:center; gap:8px; margin-bottom:22px; padding:0; background:none;
+    border:none; cursor:pointer; font-family:var(--font-body); font-size:.76rem; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--ink-2); transition:color .18s ease; }
+  .book-back:hover{ color:var(--ink); }
+  /* Step 1 shows only the stay picker; step 2 shows only the calendar. */
+  .book-layout[data-step="1"] > aside{ display:none; }
+  .book-layout[data-step="2"] > .book-col-stay{ display:none; }
+}
