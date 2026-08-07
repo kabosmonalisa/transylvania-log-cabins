@@ -199,6 +199,17 @@ window.TLC = (function () {
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') shut(); });
   }
 
+  // Generic image carousel — wires prev/next arrows to scroll any .food-carousel-wrap.
+  function initCarousels(){
+    Array.prototype.forEach.call(document.querySelectorAll('.food-carousel-wrap'), function (wrap) {
+      var car = wrap.querySelector('.food-carousel'); if (!car) return;
+      var prev = wrap.querySelector('.food-car-btn.prev'), next = wrap.querySelector('.food-car-btn.next');
+      function step(d){ var f = car.querySelector('figure'); var w = f ? f.getBoundingClientRect().width + 16 : 300; car.scrollBy({ left: d * w * 2, behavior: 'smooth' }); }
+      if (prev) prev.addEventListener('click', function () { step(-1); });
+      if (next) next.addEventListener('click', function () { step(1); });
+    });
+  }
+
   function init(opts){
     opts = opts || {};
     var navRoot = document.querySelector("[data-tlc-nav]");
@@ -208,6 +219,7 @@ window.TLC = (function () {
     initDrawer();
     initFixedHeader(!!opts.heroNav);
     initThankYou();
+    initCarousels();
     if (!document.querySelector('.tlc-wa-fab')) {
       var wa = document.createElement('a');
       wa.className = 'tlc-wa-fab'; wa.href = 'https://wa.me/' + WA_NUMBER;

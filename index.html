@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Zilla+Slab:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="ds/tlc.css?v=169">
+  <link rel="stylesheet" href="ds/tlc.css?v=177">
 </head>
 <body>
 
@@ -220,7 +220,7 @@
 
   <div data-tlc-footer></div>
 
-  <script src="ds/tlc.js?v=169"></script>
+  <script src="ds/tlc.js?v=177"></script>
   <script>TLC.init({ active:"stays", heroNav:false });</script>
   <script>
   (function(){var v=document.querySelector('.ed-hero-video');if(!v)return;
@@ -229,13 +229,6 @@
     document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});
     ['touchstart','click','scroll'].forEach(function(e){window.addEventListener(e,go,{once:true,passive:true});});
   })();
-  </script>
-  <script>
-  (function(){var car=document.getElementById('landCar');if(!car)return;
-    var pv=document.querySelector('.food-car-btn.prev'),nx=document.querySelector('.food-car-btn.next');
-    function step(d){var f=car.querySelector('figure');var w=f?f.getBoundingClientRect().width+16:300;car.scrollBy({left:d*w*2,behavior:'smooth'});}
-    pv&&pv.addEventListener('click',function(){step(-1);});
-    nx&&nx.addEventListener('click',function(){step(1);});})();
   </script>
 </body>
 </html>
