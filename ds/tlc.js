@@ -115,7 +115,7 @@ window.TLC = (function () {
           '<div class="tlc-footer-cta">' +
             '<span class="eyebrow">Private by nature</span>' +
             '<h2 class="display">Come find the <span class="script">quiet</span>.</h2>' +
-            '<p class="lead">A private, adults-only escape in wild Transylvania &mdash; space enough to disappear.</p>' +
+            '<p class="lead">A private, adults-only escape in wild Transylvania.</p>' +
             '<a class="btn" href="' + rel("/book.html") + '">Check dates &amp; book</a>' +
           '</div>' +
           '<div class="tlc-footer-foot">' +
