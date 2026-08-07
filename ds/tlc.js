@@ -36,7 +36,7 @@ window.TLC = (function () {
     + '<path d="M26 1 C 24.3 14, 27.5 24, 26 34 C 24.7 42, 26.7 45.5, 26 47"/>'
     + '<path d="M26.1 31 C 27.4 29.6, 28.2 28.9, 28.8 28.5"/>'
     + '</svg>';
-  var BRAND_HTML = 'Transylvania Log' + LOG_MARK + 'Cabins';
+  var BRAND_HTML = 'Transylvania' + LOG_MARK + 'Log Cabins';
   // Placeholder WhatsApp number — replace 40700000000 with the hosts' real number.
   var WA_NUMBER = '40737243214';
   // One clean, delicate, correctly-centered thin-line WhatsApp — used in footer + FAB.
