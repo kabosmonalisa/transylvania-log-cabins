@@ -225,8 +225,9 @@ body{
   color:var(--ink); text-decoration:none; line-height:1; white-space:nowrap;
 }
 /* Timber flourish flanking LOG — a small cluster of thin vertical "log" strokes */
+/* Log mark sits ON the text baseline — grounded, feet level with the letters. */
 .tlc-brand .lm{ display:inline-block; height:1.75em; width:auto; margin:0 .5em;
-  vertical-align:middle; opacity:.65; }
+  vertical-align:baseline; opacity:.65; }
 .tlc-brand .tlc-log{ letter-spacing:.26em; padding-left:.26em; }
 .tlc-brand small{
   font-family:var(--font-body); font-weight:500; font-size:.6rem;
@@ -306,9 +307,10 @@ body{
 .tlc-drawer-meta{ font-family:var(--font-body); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase;
   color:var(--ink-3); white-space:nowrap; }
 /* Standalone links (Events, Our story), set off by a hairline */
-.tlc-drawer-links{ display:flex; flex-direction:column; padding-top:30px; border-top:1px solid var(--line); }
+.tlc-drawer-links{ display:flex; flex-direction:column; gap:10px; padding-top:30px; border-top:1px solid var(--line); }
+/* Bigger tap targets + clear gap so Events / Our story can't be mis-tapped. */
 .tlc-drawer-link{ font-family:var(--font-display); font-size:1.5rem; line-height:1.15; color:var(--ink);
-  text-decoration:none; padding:9px 0; transition:opacity .18s ease; }
+  text-decoration:none; padding:15px 0; transition:opacity .18s ease; }
 .tlc-drawer-link:hover{ opacity:.6; }
 .tlc-drawer-book{ margin-top:36px; width:100%; justify-content:center; text-align:center; font-size:.9rem; }
 .tlc-drawer-close{ position:absolute; top:26px; right:24px; z-index:2; background:none; border:0; font-size:1.7rem; line-height:1; cursor:pointer; color:var(--ink); }
@@ -331,8 +333,9 @@ body.drawer-open{ overflow:hidden; }
 .tlc-footer-cta .eyebrow{ display:block; margin-bottom:18px; color:rgba(250,249,247,.6); }
 .tlc-footer-cta .display{ color:var(--invert-ink); }
 .tlc-footer-cta .lead{ color:rgba(250,249,247,.72); margin:20px auto 30px; max-width:var(--content-narrow); }
-.tlc-footer-cta .btn{ --_bg:var(--paper); --_fg:var(--ink); --_bd:var(--paper); color:var(--ink); }
-.tlc-footer-cta .btn:hover{ --_bg:transparent; color:var(--paper); border-color:var(--paper); }
+/* Ghost on the dark footer: white border + white text, transparent fill; fills white on hover. */
+.tlc-footer-cta .btn{ --_bg:transparent; --_fg:var(--paper); --_bd:var(--paper); color:var(--paper); border-color:var(--paper); }
+.tlc-footer-cta .btn:hover{ --_bg:var(--paper); color:var(--ink); border-color:var(--paper); }
 .tlc-footer .tlc-brand small{ color:rgba(251,250,247,.55); }
 .tlc-footer h4{
   font-family:var(--font-body); font-weight:500; font-size:.72rem;
@@ -921,9 +924,10 @@ body.lightbox-open{ overflow:hidden; }
   margin-top:clamp(44px,5vw,72px); border-top:1px solid rgba(251,250,247,.14); }
 .tlc-footer-nav{ justify-self:center; }
 .tlc-footer-social{ justify-self:end; }
-/* All-caps wordmark has no descenders, so its optical center rides ~2px high vs the
-   mixed-case nav + icons — nudge it onto the shared centerline for perfect alignment. */
-.tlc-footer-foot .tlc-brand{ transform:translateY(2px); }
+/* The grounded (baseline) log mark makes the wordmark box tall-upward, so centering the
+   box drops the caps below the nav/icon line — lift the wordmark's TEXT back onto the
+   shared centerline (the mark, grounded on the wordmark's baseline, rides up with it). */
+.tlc-footer-foot .tlc-brand{ transform:translateY(-5.4px); }
 /* Below 900px the single row can't hold brand + 4 nav items + icons without the nav
    wrapping (which breaks the shared centerline) — stack them, centered, instead. */
 @media (max-width:900px){ .tlc-footer-foot{ grid-template-columns:1fr; justify-items:center; text-align:center; gap:26px; }
