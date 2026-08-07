@@ -21,7 +21,7 @@ window.TLC = (function () {
       { label: "The Barn Ensuite",       href: "/stays/barn-ensuite.html",   meta: "Sleeps 2" }
     ] },
     { key: "events", label: "Events",     href: "#" },
-    { key: "story",  label: "Our story",   href: "#" },
+    { key: "story",  label: "Our story",   href: "/our-story.html" },
     { key: "book",   label: "Book",        href: "/book.html", btn: true }
   ];
 
@@ -115,7 +115,7 @@ window.TLC = (function () {
           '<div class="tlc-footer-cta">' +
             '<span class="eyebrow">Private by nature</span>' +
             '<h2 class="display">Come find the <span class="script">quiet</span>.</h2>' +
-            '<p class="lead">A private, adults-only escape into wild Transylvania &mdash; space to disappear, silence to think, rest that runs deep.</p>' +
+            '<p class="lead">A private, adults-only escape in wild Transylvania &mdash; space enough to disappear.</p>' +
             '<a class="btn" href="' + rel("/book.html") + '">Check dates &amp; book</a>' +
           '</div>' +
           '<div class="tlc-footer-foot">' +
@@ -124,7 +124,7 @@ window.TLC = (function () {
               '<a href="' + rel("/index.html#collection") + '">The Cabins</a>' +
               '<a href="' + rel("/book.html") + '">Book a stay</a>' +
               '<a href="#">Events</a>' +
-              '<a href="#">Our story</a>' +
+              '<a href="' + rel("/our-story.html") + '">Our story</a>' +
             '</nav>' +
             '<div class="tlc-footer-social">' +
               '<a href="https://wa.me/' + WA_NUMBER + '" aria-label="WhatsApp" target="_blank" rel="noopener">' + WA_ICON + '</a>' +
