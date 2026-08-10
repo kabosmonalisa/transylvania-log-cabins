@@ -200,8 +200,14 @@
       btn.addEventListener('click',function(){
         if(selected===p){ setBtn(p,false); selected=null; }
         else { if(selected) setBtn(selected,false); setBtn(p,true); selected=p;
-          // Desktop: glide the selected card so its top lines up with the sticky Step 2 panel.
-          if(window.innerWidth>900){ var y=p.getBoundingClientRect().top+window.scrollY-100; window.scrollTo({top:Math.max(0,y),behavior:'smooth'}); }
+          // Desktop: glide the selected card so its top lines up with the sticky Step 2 panel —
+          // clamped so we never scroll past where Step 2 can stay pinned (keeps it independent).
+          if(window.innerWidth>900){
+            var lay=document.querySelector('.book-layout'), asd=lay.querySelector('aside');
+            var maxStick=lay.getBoundingClientRect().bottom+window.scrollY-100-asd.offsetHeight;
+            var y=Math.max(0, Math.min(p.getBoundingClientRect().top+window.scrollY-100, maxStick));
+            window.scrollTo({top:y,behavior:'smooth'});
+          }
         }
         updateStep2();
       });
