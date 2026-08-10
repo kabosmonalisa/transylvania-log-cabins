@@ -302,20 +302,23 @@ body{
 .tlc-drawer-group{ margin-bottom:38px; }
 /* Each stay — serif name on the left, small capacity tag on the right */
 .tlc-drawer-stay{ display:flex; align-items:baseline; justify-content:space-between; gap:18px;
-  text-decoration:none; padding:9px 0; }
+  text-decoration:none; padding:13px 0; }
 .tlc-drawer-stay-name{ font-family:var(--font-display); font-size:1.5rem; line-height:1.15; color:var(--ink);
   transition:opacity .18s ease; }
 .tlc-drawer-stay:hover .tlc-drawer-stay-name{ opacity:.6; }
 .tlc-drawer-meta{ font-family:var(--font-body); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase;
   color:var(--ink-3); white-space:nowrap; }
 /* Standalone links (Events, Our story), set off by a hairline */
-.tlc-drawer-links{ display:flex; flex-direction:column; gap:10px; padding-top:30px; border-top:1px solid var(--line); }
-/* Bigger tap targets + clear gap so Events / Our story can't be mis-tapped. */
+.tlc-drawer-links{ display:flex; flex-direction:column; gap:2px; padding-top:30px; border-top:1px solid var(--line); }
+/* Tap targets, but tighter than the stays so Events / Our story read as one pair. */
 .tlc-drawer-link{ font-family:var(--font-display); font-size:1.5rem; line-height:1.15; color:var(--ink);
-  text-decoration:none; padding:15px 0; transition:opacity .18s ease; }
+  text-decoration:none; padding:9px 0; transition:opacity .18s ease; }
 .tlc-drawer-link:hover{ opacity:.6; }
 .tlc-drawer-book{ margin-top:36px; width:100%; justify-content:center; text-align:center; font-size:.9rem; }
-.tlc-drawer-close{ position:absolute; top:26px; right:24px; z-index:2; background:none; border:0; font-size:1.7rem; line-height:1; cursor:pointer; color:var(--ink); }
+/* × sits on the wordmark's text centerline (the tall log-mark makes the brand box
+   run high, so the close is nudged down to match the caps, not the box). Right edge
+   aligns with the content gutter, so × lines up over the wordmark's right end. */
+.tlc-drawer-close{ position:absolute; top:33px; right:var(--gutter); z-index:2; background:none; border:0; font-size:1.7rem; line-height:1; cursor:pointer; color:var(--ink); }
 .tlc-lang-drawer{ align-self:flex-start; margin-top:30px; }
 body.drawer-open{ overflow:hidden; }
 
@@ -934,10 +937,12 @@ body.lightbox-open{ overflow:hidden; }
 .tlc-footer-foot .tlc-brand{ transform:translateY(-5.4px); }
 /* Below 900px the single row can't hold brand + 4 nav items + icons without the nav
    wrapping (which breaks the shared centerline) — stack them, centered, instead. */
-@media (max-width:900px){ .tlc-footer-foot{ grid-template-columns:1fr; justify-items:center; text-align:center; gap:26px; }
+@media (max-width:900px){ .tlc-footer-foot{ grid-template-columns:1fr; justify-items:center; text-align:center; gap:24px; }
   .tlc-footer-nav, .tlc-footer-social{ justify-self:center; }
-  .tlc-footer-foot .tlc-brand{ transform:none; } }
-.tlc-footer-nav{ display:flex; gap:clamp(18px,2.6vw,36px); flex-wrap:wrap; }
+  .tlc-footer-foot .tlc-brand{ transform:none; }
+  /* Center the wrapped nav and stack the copyright/location as one centered block. */
+  .tlc-footer-bottom{ justify-content:center; text-align:center; flex-direction:column; gap:8px; padding-top:30px; } }
+.tlc-footer-nav{ display:flex; gap:clamp(18px,2.6vw,36px); flex-wrap:wrap; justify-content:center; }
 .tlc-footer-nav a{ color:rgba(251,250,247,.66); font-family:var(--font-body); font-size:.76rem;
   letter-spacing:.12em; text-transform:uppercase; text-decoration:none; transition:color .2s ease; }
 .tlc-footer-nav a:hover{ color:var(--paper); }
