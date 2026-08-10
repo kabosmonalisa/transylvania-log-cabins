@@ -31,6 +31,7 @@
   --invert-bg:  #1A1A1A;   /* full-bleed dark editorial sections */
   --invert-ink: #FAF9F7;   /* text on dark */
   --overlay:    rgba(26,26,26,0.34);  /* image scrim for legible text */
+  --sel:        #EDE9E1;   /* THE one selected / hover / in-range tint — reuse everywhere */
 
   /* — Radius: editorial = almost square — */
   --r-sm: 2px;  --r-md: 4px;  --r-pill: 999px;
@@ -806,7 +807,7 @@ body.drawer-open{ overflow:hidden; }
 .tlc-drop a{ display:flex; align-items:baseline; justify-content:space-between; gap:2.5em; padding:12px 14px;
   font-family:var(--font-body); font-weight:400; font-size:.92rem; line-height:1.2; border-radius:var(--r-sm);
   letter-spacing:normal; text-transform:none; white-space:nowrap; transition:background .16s ease; }
-.tlc-drop a:hover{ background:#F1EEE7; }
+.tlc-drop a:hover{ background:var(--sel); }
 .tlc-drop .td-name{ color:var(--ink-3); transition:color .18s ease; }
 .tlc-drop .td-meta{ font-family:var(--font-body); font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3); transition:color .18s ease; }
 .tlc-drop a:hover .td-name{ color:var(--ink); }
@@ -902,7 +903,7 @@ body.lightbox-open{ overflow:hidden; }
 .bw-day.blank{ pointer-events:none; }
 .bw-day.off{ color:var(--ink-3); opacity:.32; text-decoration:line-through; cursor:not-allowed; }
 .bw-day:not(.off):not(.blank):hover{ border-color:var(--ink); }
-.bw-day.inrange{ background:#EDE9E1; }
+.bw-day.inrange{ background:var(--sel); }
 .bw-day.sel{ background:var(--ink); color:var(--paper); }
 .bw-foot{ padding:18px 20px; border-top:1px solid var(--line); }
 .bw-note{ font-size:.72rem; color:var(--ink-3); margin:0 0 16px; }
@@ -914,7 +915,7 @@ body.lightbox-open{ overflow:hidden; }
 /* The date fields are DISPLAYS filled by the calendar. The field the next tap will fill is
    highlighted and shows a small static arrow pointing down to the calendar — this replaces a
    whole instruction row, so the flow is clear without the extra height. */
-.bw-field.is-active{ background:#EDE9E1; box-shadow:inset 0 -2px 0 var(--ink); }
+.bw-field.is-active{ background:var(--sel); box-shadow:inset 0 -2px 0 var(--ink); }
 .bw-field.is-active .bw-lab{ color:var(--ink); }
 .bw-field.is-active .bw-val::after{ content:"\2193"; margin-left:7px; display:inline-block; color:var(--ink); }
 .bw-field.bw-date .bw-val{ cursor:default; }
@@ -1009,7 +1010,7 @@ body.lightbox-open{ overflow:hidden; }
   transition:border-color .18s ease, background .18s ease; }
 .book-pick:hover{ border-color:var(--line-2); }
 /* Selected card — ink border + soft tint. Selection is via the Select button. */
-.book-pick.selected{ border-color:var(--ink); background:#FBFAF7; }
+.book-pick.selected{ border-color:var(--ink); background:var(--sel); }
 .book-step-hint{ margin:14px 0 30px; font-size:.92rem; color:var(--ink-3); line-height:1.5; max-width:54ch; }
 .book-step-hint strong{ color:var(--ink); font-weight:600; }
 .book-pick-carousel{ position:relative; width:100%; border-radius:var(--r-md); overflow:hidden; }
