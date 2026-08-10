@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ds/tlc.css?v=202">
+  <link rel="stylesheet" href="ds/tlc.css?v=203">
 </head>
 <body>
   <div data-tlc-nav data-active="book"></div>
@@ -126,7 +126,6 @@
               <div class="bw-grid" id="bwGrid"></div>
             </div>
             <div class="bw-foot">
-              <p class="bw-note">Rares &amp; Gabie confirm your dates within a day.</p>
               <div class="bw-price" id="bwPrice" hidden><span class="bw-price-calc" id="bwPriceCalc"></span><span class="bw-price-total" id="bwPriceTotal"></span></div><div class="bw-action"><span class="bw-summary" id="bwSummary">Select your dates</span><button type="button" class="btn" id="bwRequest" disabled>Select a stay first</button></div>
             </div>
           </div>
@@ -157,7 +156,7 @@
     </div>
   </main>
   <div data-tlc-footer></div>
-  <script src="ds/tlc.js?v=202"></script>
+  <script src="ds/tlc.js?v=203"></script>
   <script>TLC.init({ active:"book", heroNav:false });</script>
   <script>
   (function(){
@@ -180,16 +179,16 @@
         if(ci&&co&&cmp(o,ci)>0&&cmp(o,co)<0) c+=' inrange';
         h+='<span class="'+c+'" data-d="'+d+'">'+d+'</span>'; } grid.innerHTML=h; }
     function foot(){ inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci); outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
-      if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); sum.textContent = adults>=1 ? (n+' night'+(n>1?'s':'')+' · '+adults+' adult'+(adults>1?'s':'')) : 'Add your guests'; } else sum.textContent='Select your dates'; if(typeof refreshRequest==='function') refreshRequest(); updatePrice(); if(typeof updateCtaBar==='function') updateCtaBar(); updateDateUX(); }
+      if(ci&&co){ sum.textContent = adults>=1 ? (adults+' adult'+(adults>1?'s':'')) : 'Add your guests'; } else sum.textContent='Select your dates'; if(typeof refreshRequest==='function') refreshRequest(); updatePrice(); if(typeof updateCtaBar==='function') updateCtaBar(); updateDateUX(); }
     // Highlight the field the user should act on next — guests first, then check-in, then check-out.
     function updateDateUX(){
       var fa=document.querySelector('.bw-field-adults'), fin=document.getElementById('bwFieldIn'), fout=document.getElementById('bwFieldOut');
       if(!fin||!fout) return;
       [fa,fin,fout].forEach(function(el){ if(el) el.classList.remove('is-active'); });
-      if(adults<1){ if(fa) fa.classList.add('is-active'); }
-      else if(ci&&co){ /* all set */ }
-      else if(ci&&!co){ fout.classList.add('is-active'); }
-      else { fin.classList.add('is-active'); }
+      // Stay on Guests until a check-in is actually picked (don't jump away the moment guests≥1),
+      // then move to check-out; nothing highlighted once both dates are set.
+      if(adults<1 || !ci){ if(fa) fa.classList.add('is-active'); }
+      else if(!co){ fout.classList.add('is-active'); }
     }
     // Live price = the selected stay's nightly rate × nights, shown above the Request button.
     function updatePrice(){

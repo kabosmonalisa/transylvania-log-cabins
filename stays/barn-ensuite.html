@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../ds/tlc.css?v=202">
+  <link rel="stylesheet" href="../ds/tlc.css?v=203">
 </head>
 <body>
   <div data-tlc-nav data-active="stays"></div>
@@ -76,7 +76,6 @@
               <div class="bw-grid" id="bwGrid"></div>
             </div>
             <div class="bw-foot">
-              <p class="bw-note">Rares &amp; Gabie confirm your dates within a day.</p>
               <div class="bw-price" id="bwPrice" hidden><span class="bw-price-calc" id="bwPriceCalc"></span><span class="bw-price-total" id="bwPriceTotal"></span></div><div class="bw-action"><span class="bw-summary" id="bwSummary">Select your dates</span><button type="button" class="btn" id="bwRequest" disabled>Pick your dates first</button></div>
             </div>
           </div>
@@ -102,7 +101,7 @@
   </div>
 
   <div data-tlc-footer></div>
-  <script src="../ds/tlc.js?v=202"></script>
+  <script src="../ds/tlc.js?v=203"></script>
   <script>TLC.init({ active:"stays", heroNav:false });</script>
   <script>
   (function(){var b=document.getElementById('showAll'),lb=document.getElementById('lightbox'),cl=document.getElementById('lbClose');if(!b||!lb)return;
@@ -132,8 +131,8 @@
         if(ci&&co&&cmp(o,ci)>0&&cmp(o,co)<0) c+=' inrange';
         h+='<span class="'+c+'" data-d="'+d+'">'+d+'</span>'; } grid.innerHTML=h; }
     function foot(){ inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci); outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
-      if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); sum.textContent = adults>=1 ? (n+' night'+(n>1?'s':'')+' · '+adults+' adult'+(adults>1?'s':'')) : 'Add your guests'; } else sum.textContent='Select your dates'; updateDateUX(); refreshRequest(); updatePrice(); }
-    function updateDateUX(){ var fa=document.querySelector('.bw-field-adults'),fin=document.getElementById('bwFieldIn'),fout=document.getElementById('bwFieldOut'); if(!fin||!fout)return; [fa,fin,fout].forEach(function(el){if(el)el.classList.remove('is-active');}); if(adults<1){if(fa)fa.classList.add('is-active');} else if(ci&&co){} else if(ci&&!co){fout.classList.add('is-active');} else {fin.classList.add('is-active');} }
+      if(ci&&co){ sum.textContent = adults>=1 ? (adults+' adult'+(adults>1?'s':'')) : 'Add your guests'; } else sum.textContent='Select your dates'; updateDateUX(); refreshRequest(); updatePrice(); }
+    function updateDateUX(){ var fa=document.querySelector('.bw-field-adults'),fin=document.getElementById('bwFieldIn'),fout=document.getElementById('bwFieldOut'); if(!fin||!fout)return; [fa,fin,fout].forEach(function(el){if(el)el.classList.remove('is-active');}); if(adults<1||!ci){if(fa)fa.classList.add('is-active');} else if(!co){fout.classList.add('is-active');} }
     function refreshRequest(){ var b=document.getElementById('bwRequest'); if(!b)return; var ok=adults>=1&&!!ci&&!!co; b.disabled=!ok; b.textContent=ok?'Request to book':(adults<1?'Add guests first':'Pick your dates first'); }
     function updatePrice(){ var el=document.getElementById('bwPrice'); if(!el)return; var rate=+(document.querySelector('.bw').getAttribute('data-rate'))||0; if(rate&&ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); document.getElementById('bwPriceCalc').textContent='€'+rate+' × '+n+' night'+(n>1?'s':''); document.getElementById('bwPriceTotal').textContent='€'+(rate*n); el.hidden=false; } else { el.hidden=true; } }
     grid.addEventListener('click',function(e){ var el=e.target.closest('.bw-day'); if(!el||el.classList.contains('blank')||el.classList.contains('off')) return;
