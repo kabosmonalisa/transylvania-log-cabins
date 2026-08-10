@@ -109,14 +109,21 @@ window.TLC = (function () {
 
   function renderFooter(root, opts){
     opts = opts || {};
+    // Footer CTA is customisable per page (defaults to the book-a-stay CTA).
+    var c = opts.footerCta || {};
+    var cEyebrow = c.eyebrow || 'Private by nature';
+    var cTitle   = c.title   || 'Come find the <span class="script">quiet</span>.';
+    var cSub     = c.sub     || 'A private, adults-only escape in wild Transylvania.';
+    var cBtn     = c.btnLabel || 'Check dates &amp; book';
+    var cHref    = c.btnHref  || rel("/book.html");
     root.innerHTML =
       '<footer class="tlc-footer">' +
         '<div class="tlc-footer-inner">' +
           '<div class="tlc-footer-cta">' +
-            '<span class="eyebrow">Private by nature</span>' +
-            '<h2 class="display">Come find the <span class="script">quiet</span>.</h2>' +
-            '<p class="lead">A private, adults-only escape in wild Transylvania.</p>' +
-            '<a class="btn" href="' + rel("/book.html") + '">Check dates &amp; book</a>' +
+            '<span class="eyebrow">' + cEyebrow + '</span>' +
+            '<h2 class="display">' + cTitle + '</h2>' +
+            '<p class="lead">' + cSub + '</p>' +
+            '<a class="btn" href="' + cHref + '">' + cBtn + '</a>' +
           '</div>' +
           '<div class="tlc-footer-foot">' +
             '<a class="tlc-brand" href="' + rel("/index.html") + '">' + BRAND_HTML + '</a>' +

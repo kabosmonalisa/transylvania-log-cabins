@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="ds/tlc.css?v=210">
+  <link rel="stylesheet" href="ds/tlc.css?v=211">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
       <div class="content-narrow" style="margin:0 auto; text-align:center">
         <span class="eyebrow">Private events</span>
         <h1 class="display" style="margin-top:16px">Gather in the <span class="script">wild</span>.</h1>
-        <p class="lead" style="margin:24px auto 0; max-width:52ch">Weddings, celebrations and quiet company days on one private estate in the forest &mdash; intimate by design, up to 100 guests, entirely your own.</p>
+        <p class="lead" style="margin:24px auto 0; max-width:52ch">Weddings, birthdays, retreats and company days on one private estate in the forest, for up to 100 people. You&rsquo;ll have the whole place to yourselves.</p>
         <div class="ev-actions">
           <!-- COPY: confirm the real events email address -->
           <a class="btn" href="mailto:hello@transylvanialogcabins.com?subject=Private%20event%20enquiry">Email us</a>
@@ -52,8 +52,8 @@
       <div class="content">
         <div class="content-narrow" style="margin:0 auto; text-align:center">
           <span class="eyebrow">The idea</span>
-          <h2 class="display-sm" style="margin-top:14px">Small, by <span class="script">design</span>.</h2>
-          <p class="lead" style="margin-top:26px">A wedding, a birthday, a retreat, a company day, a classic-car weekend &mdash; whatever you&rsquo;re gathering for, it happens here, on one hillside with nothing around you but forest. Rares and Gabie keep it small: never more than 100 guests, and always fully your own.</p>
+          <h2 class="display-sm" style="margin-top:14px">Small and <span class="script">private</span>.</h2>
+          <p class="lead" style="margin-top:26px">A wedding, a birthday, a retreat, a company day, even a classic-car weekend &mdash; whatever the occasion, it happens here, on one hillside surrounded by forest. Rares and Gabie keep every event small: never more than 100 people at a time.</p>
         </div>
       </div>
     </section>
@@ -66,8 +66,8 @@
         </figure>
         <div class="split-body">
           <span class="eyebrow">Fully hosted</span>
-          <h3 class="display-sm">Leave it to <span class="script">them</span>.</h3>
-          <p class="lead" style="margin-top:22px">Hand over the food and the feel of the day. Gabie cooks &mdash; generous, seasonal, quietly unforgettable &mdash; and the tables, the flowers and the lighting are taken care of. You arrive, and it&rsquo;s ready.</p>
+          <h3 class="display-sm">They do it <span class="script">all</span>.</h3>
+          <p class="lead" style="margin-top:22px">Gabie cooks, and the tables, the flowers and the lighting are all set up for you. You just turn up on the day.</p>
         </div>
       </div>
     </section>
@@ -78,25 +78,9 @@
           <div class="split-img" style="aspect-ratio:4/5"><img src="photos/events/e07.jpg" alt="The estate and its grounds from above" loading="lazy"></div>
         </figure>
         <div class="split-body">
-          <span class="eyebrow">Just the venue</span>
-          <h3 class="display-sm">Or make it <span class="script">yours</span>.</h3>
-          <p class="lead" style="margin-top:22px">Prefer your own team? Take the estate on its own and bring your caterer, your planner, your vision. The place is yours for the day; the rest is up to you.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT CLOSER — light, no booking -->
-    <section class="section" id="enquire">
-      <div class="content">
-        <div class="content-narrow" style="margin:0 auto; text-align:center">
-          <span class="eyebrow">Enquire</span>
-          <h2 class="display-sm" style="margin-top:14px">Tell us what you&rsquo;re <span class="script">planning</span>.</h2>
-          <p class="lead" style="margin:26px auto 0; max-width:46ch">No forms, no booking &mdash; just a message. Email or give us a call, and we&rsquo;ll help you shape the day.</p>
-          <div class="ev-actions">
-            <a class="btn" href="mailto:hello@transylvanialogcabins.com?subject=Private%20event%20enquiry">Email us</a>
-            <a class="btn btn-line" href="tel:+40737243214">Call us</a>
-          </div>
-          <p class="eyebrow" style="margin-top:24px; color:var(--ink-3)">hello@transylvanialogcabins.com &nbsp;&middot;&nbsp; +40 737 243 214</p>
+          <span class="eyebrow">Venue only</span>
+          <h3 class="display-sm">Or bring your <span class="script">own</span>.</h3>
+          <p class="lead" style="margin-top:22px">Rent the estate on its own and bring your own caterer and planner. The space is ready; the rest is up to you.</p>
         </div>
       </div>
     </section>
@@ -105,7 +89,17 @@
 
   <div data-tlc-footer></div>
 
-  <script src="ds/tlc.js?v=210"></script>
-  <script>TLC.init({ active:"events", heroNav:false });</script>
+  <script src="ds/tlc.js?v=211"></script>
+  <script>TLC.init({
+    active:"events",
+    heroNav:false,
+    footerCta:{
+      eyebrow:"Enquire",
+      title:'Tell us what you&rsquo;re <span class="script">planning</span>.',
+      sub:'No booking form &mdash; email us, or call +40 737 243 214, and we&rsquo;ll help you plan the day.',
+      btnLabel:"Email us",
+      btnHref:"mailto:hello@transylvanialogcabins.com?subject=Private%20event%20enquiry"
+    }
+  });</script>
 </body>
 </html>
