@@ -892,7 +892,7 @@ body.lightbox-open{ overflow:hidden; }
 .bw-val{ font-size:.95rem; color:var(--ink-3); }
 .bw-val.set{ color:var(--ink); }
 .bw-cal{ padding:clamp(18px,2.4vw,30px); }
-.bw-cal-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+.bw-cal-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
 .bw-cal-head span{ font-family:var(--font-display); font-size:1.2rem; }
 .bw-cal-head button{ border:1px solid var(--line); background:none; width:34px; height:34px; border-radius:50%; cursor:pointer; color:var(--ink-2); font-size:1rem; line-height:1; }
 .bw-cal-head button:hover{ border-color:var(--ink); color:var(--ink); }
@@ -911,18 +911,16 @@ body.lightbox-open{ overflow:hidden; }
 .bw-note .k.off::before{ border-style:dashed; opacity:.5; }
 .bw-action{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
 .bw-summary{ font-size:.92rem; color:var(--ink-2); }
-/* The date fields are DISPLAYS filled by the calendar — a bobbing arrow points down to it,
-   and the field the next tap will fill is highlighted, so the flow is unmistakable. */
-.bw-datehint{ display:flex; align-items:center; justify-content:center; gap:8px; margin:0;
-  padding:11px 16px; border-bottom:1px solid var(--line); background:#F6F2EA;
-  font-size:.72rem; letter-spacing:.04em; color:var(--ink-2); text-align:center; }
-.bw-datehint svg{ width:15px; height:15px; flex:0 0 auto; color:var(--ink-3);
-  animation:bw-bob 1.5s ease-in-out infinite; }
+/* The date fields are DISPLAYS filled by the calendar. The field the next tap will fill is
+   highlighted and shows a small bobbing arrow pointing down to the calendar — this replaces a
+   whole instruction row, so the flow is clear without the extra height. */
 @keyframes bw-bob{ 0%,100%{ transform:translateY(-1px); } 50%{ transform:translateY(2px); } }
 .bw-field.is-active{ background:#EDE9E1; box-shadow:inset 0 -2px 0 var(--ink); }
 .bw-field.is-active .bw-lab{ color:var(--ink); }
+.bw-field.is-active .bw-val::after{ content:"\2193"; margin-left:7px; display:inline-block;
+  color:var(--ink); animation:bw-bob 1.4s ease-in-out infinite; }
 .bw-field.bw-date .bw-val{ cursor:default; }
-@media (prefers-reduced-motion:reduce){ .bw-datehint svg{ animation:none; } }
+@media (prefers-reduced-motion:reduce){ .bw-field.is-active .bw-val::after{ animation:none; } }
 /* Mobile: Adults on its own row, Check in + Check out side by side (not three tall rows).
    Position-based so it works on the booking page AND the stay pages (same field order). */
 @media (max-width:560px){
@@ -935,8 +933,8 @@ body.lightbox-open{ overflow:hidden; }
 /* Booking widget in the sticky sidebar */
 .stay-body aside{ position:sticky; top:100px; align-self:start; }
 .bw-side{ max-width:none; }
-.bw-side .bw-field{ padding:14px 14px; }
-.bw-side .bw-cal{ padding:18px 16px; }
+.bw-side .bw-field{ padding:11px 14px; }
+.bw-side .bw-cal{ padding:12px 16px 16px; }
 .bw-side .bw-foot{ padding:16px; }
 .bw-side .bw-action{ flex-direction:column; align-items:stretch; gap:12px; }
 .bw-side .bw-action .btn{ justify-content:center; text-align:center; }

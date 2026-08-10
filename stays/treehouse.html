@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../ds/tlc.css?v=195">
+  <link rel="stylesheet" href="../ds/tlc.css?v=196">
 </head>
 <body>
   <div data-tlc-nav data-active="stays"></div>
@@ -67,11 +67,10 @@
         <aside>
           <div class="bw bw-side">
             <div class="bw-bar">
-              <div class="bw-field"><span class="bw-lab">Adults</span><div class="bw-stepper"><button type="button" class="bw-step-btn" data-step="-1" aria-label="Fewer adults">&minus;</button><span class="bw-step-val" id="bwGuests" data-max="2">2</span><button type="button" class="bw-step-btn" data-step="1" aria-label="More adults">+</button></div></div>
-              <div class="bw-field"><span class="bw-lab">Check in</span><span class="bw-val" id="bwIn">Add date</span></div>
-              <div class="bw-field"><span class="bw-lab">Check out</span><span class="bw-val" id="bwOut">Add date</span></div>
+              <div class="bw-field bw-field-adults"><span class="bw-lab">Adults</span><div class="bw-stepper"><button type="button" class="bw-step-btn" data-step="-1" aria-label="Fewer adults">&minus;</button><span class="bw-step-val" id="bwGuests" data-max="2">2</span><button type="button" class="bw-step-btn" data-step="1" aria-label="More adults">+</button></div></div>
+              <div class="bw-field bw-date" id="bwFieldIn"><span class="bw-lab">Check in</span><span class="bw-val" id="bwIn">Add date</span></div>
+              <div class="bw-field bw-date" id="bwFieldOut"><span class="bw-lab">Check out</span><span class="bw-val" id="bwOut">Add date</span></div>
             </div>
-            <p class="bw-datehint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg><span>Tap a date on the calendar below to choose your dates</span></p>
             <div class="bw-cal">
               <div class="bw-cal-head"><button type="button" id="bwPrev" aria-label="Previous month">&#8249;</button><span id="bwMonth">August 2026</span><button type="button" id="bwNext" aria-label="Next month">&#8250;</button></div>
               <div class="bw-grid" id="bwGrid"></div>
@@ -119,7 +118,7 @@
   </div>
 
   <div data-tlc-footer></div>
-  <script src="../ds/tlc.js?v=195"></script>
+  <script src="../ds/tlc.js?v=196"></script>
   <script>TLC.init({ active:"stays", heroNav:false });</script>
   <script>
   (function(){var b=document.getElementById('showAll'),lb=document.getElementById('lightbox'),cl=document.getElementById('lbClose');if(!b||!lb)return;
@@ -149,7 +148,8 @@
         if(ci&&co&&cmp(o,ci)>0&&cmp(o,co)<0) c+=' inrange';
         h+='<span class="'+c+'" data-d="'+d+'">'+d+'</span>'; } grid.innerHTML=h; }
     function foot(){ inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci); outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
-      if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); sum.textContent=n+' night'+(n>1?'s':'')+' \u00b7 '+adults+' adult'+(adults>1?'s':''); } else sum.textContent='Select your dates'; }
+      if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); sum.textContent=n+' night'+(n>1?'s':'')+' \u00b7 '+adults+' adult'+(adults>1?'s':''); } else sum.textContent='Select your dates'; updateDateUX(); }
+    function updateDateUX(){ var fin=document.getElementById('bwFieldIn'),fout=document.getElementById('bwFieldOut'); if(!fin||!fout)return; fin.classList.remove('is-active'); fout.classList.remove('is-active'); if(ci&&co){} else if(ci&&!co){fout.classList.add('is-active');} else {fin.classList.add('is-active');} }
     grid.addEventListener('click',function(e){ var el=e.target.closest('.bw-day'); if(!el||el.classList.contains('blank')||el.classList.contains('off')) return;
       var o={y:year,m:month,d:+el.dataset.d}; if(!ci||(ci&&co)){ ci=o; co=null; } else if(cmp(o,ci)>0){ co=o; } else { co=ci; ci=o; } render(); foot(); });
     document.getElementById('bwPrev').addEventListener('click',function(){ month--; if(month<0){month=11;year--;} render(); });
