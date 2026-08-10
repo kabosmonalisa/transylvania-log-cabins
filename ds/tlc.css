@@ -1064,15 +1064,34 @@ body.modal-open{ overflow:hidden; }
 
 /* ===== Booking wizard — two separate screens on mobile ==================== */
 .book-continue, .book-back{ display:none; }
+.book-cta-bar{ display:none; }
 @media (max-width:900px){
-  .book-continue{ display:inline-flex; justify-content:center; width:100%; margin-top:30px; }
+  /* The sticky bottom bar is the single primary CTA on mobile, so the inline
+     "Continue" button and the in-panel Request action are hidden. */
   .book-back{ display:inline-flex; align-items:center; gap:8px; margin-bottom:22px; padding:0; background:none;
     border:none; cursor:pointer; font-family:var(--font-body); font-size:.76rem; letter-spacing:.09em;
     text-transform:uppercase; color:var(--ink-2); transition:color .18s ease; }
   .book-back:hover{ color:var(--ink); }
+  .bw-action{ display:none; }
   /* Step 1 shows only the stay picker; step 2 shows only the calendar. */
   .book-layout[data-step="1"] > aside{ display:none; }
   .book-layout[data-step="2"] > .book-col-stay{ display:none; }
+  .book-layout{ padding-bottom:88px; }
+
+  /* Sticky action bar — pinned primary CTA, slides up when there's an action to take. */
+  .book-cta-bar{ position:fixed; left:0; right:0; bottom:0; z-index:55; display:flex; align-items:center; gap:14px;
+    padding:12px var(--gutter); padding-bottom:calc(12px + env(safe-area-inset-bottom));
+    background:var(--paper); border-top:1px solid var(--line); box-shadow:0 -8px 26px rgba(20,20,18,.10);
+    transform:translateY(130%); transition:transform .32s var(--ease); }
+  .book-cta-bar.show{ transform:translateY(0); }
+  .book-cta-info{ display:flex; flex-direction:column; min-width:0; flex:1 1 auto; }
+  .book-cta-label{ font-family:var(--font-display); font-size:1.05rem; line-height:1.1; color:var(--ink);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .book-cta-sub{ font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+    margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .book-cta-bar .btn{ flex:0 0 auto; white-space:nowrap; padding:13px 20px; font-size:.8rem; }
+  /* Lift the WhatsApp FAB clear of the bar while it's showing. */
+  body.book-cta-open .tlc-wa-fab{ bottom:calc(84px + env(safe-area-inset-bottom)); transition:bottom .32s var(--ease); }
 }
 
 /* Our Story hero: portrait beside the eyebrow + big headline + intro (all one side) */
