@@ -661,7 +661,10 @@ body.drawer-open{ overflow:hidden; }
 }
 @media (max-width: 760px){
   .tlc-links{ display:none; }
-  .tlc-burger{ display:block; }
+  /* The tall log-mark lifts the wordmark's box above its text, so centering the row
+     puts the burger high — drop it onto the wordmark's text centerline (same fix as the
+     drawer's close ×). Offset is constant (brand font + mark height don't change here). */
+  .tlc-burger{ display:block; transform:translateY(5px); }
   .tlc-nav-inner{ align-items:center; }
   .split, .split.reverse{ grid-template-columns:1fr; gap:32px; }
   .split.reverse .split-media{ order:0; }
