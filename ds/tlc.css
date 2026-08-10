@@ -1144,7 +1144,7 @@ body.modal-open{ overflow:hidden; }
 .ev-way p{ margin-top:16px; }
 @media (max-width:760px){ .ev-ways{ grid-template-columns:1fr; gap:44px; } }
 .pull-quote blockquote{ margin:0; font-family:var(--font-display); font-weight:500;
-  font-size:clamp(1.7rem,3.3vw,2.85rem); line-height:1.2; color:var(--ink); }
+  font-size:clamp(1.7rem,3.3vw,2.85rem); line-height:1.2; color:var(--ink); text-wrap:balance; }
 .pull-quote figcaption{ margin-top:clamp(30px,3.6vw,46px); }
 .pull-quote .pq-name{ display:block; font-family:var(--font-body); font-weight:500; font-size:.8rem;
   letter-spacing:.14em; text-transform:uppercase; color:var(--ink); }
