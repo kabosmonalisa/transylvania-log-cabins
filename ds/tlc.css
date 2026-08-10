@@ -966,6 +966,15 @@ body.lightbox-open{ overflow:hidden; }
 .book-picks{ display:flex; flex-direction:column; gap:26px; }
 /* Numbered step header — makes the two-step flow obvious, stays monochrome/editorial. */
 .book-step{ display:flex; align-items:center; gap:14px; margin-bottom:26px; }
+/* Desktop: pin "Choose your stay" at the same line as Step 2 "Pick your dates" so both
+   headers stay aligned and the cards scroll underneath them. Aside is already sticky at
+   top:100px; matching that here keeps the two step numbers on one line. */
+@media (min-width:901px){
+  .book-col-stay .book-step{ position:sticky; top:100px; z-index:5; background:var(--paper);
+    margin-bottom:0; padding-bottom:22px; }
+  .book-col-stay .book-step::before{ content:""; position:absolute; left:0; right:0; top:-80px;
+    height:80px; background:var(--paper); }
+}
 .book-step-num{ flex:0 0 auto; width:30px; height:30px; border:1px solid var(--ink); border-radius:50%;
   display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-weight:500;
   font-size:.82rem; line-height:1; color:var(--ink); }
