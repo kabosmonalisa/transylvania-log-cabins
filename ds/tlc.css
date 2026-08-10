@@ -1135,6 +1135,14 @@ body.modal-open{ overflow:hidden; }
 .pull-quote .eyebrow{ display:block; margin-bottom:22px; }
 /* Events page — centered contact button row */
 .ev-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:32px; }
+/* Events page — the two choices, side by side in one section */
+.ev-ways{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,4vw,60px); max-width:var(--content); margin:0 auto; }
+.ev-way-img{ aspect-ratio:4/3; overflow:hidden; border-radius:var(--r-md); margin-bottom:26px; }
+.ev-way-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.ev-way .eyebrow{ display:block; margin-bottom:12px; }
+.ev-way h3{ margin:0; }
+.ev-way p{ margin-top:16px; }
+@media (max-width:760px){ .ev-ways{ grid-template-columns:1fr; gap:44px; } }
 .pull-quote blockquote{ margin:0; font-family:var(--font-display); font-weight:500;
   font-size:clamp(1.7rem,3.3vw,2.85rem); line-height:1.2; color:var(--ink); }
 .pull-quote figcaption{ margin-top:clamp(30px,3.6vw,46px); }
