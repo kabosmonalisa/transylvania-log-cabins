@@ -912,6 +912,12 @@ body.lightbox-open{ overflow:hidden; }
 .bw-note .k.off::before{ border-style:dashed; opacity:.5; }
 .bw-action{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
 .bw-summary{ font-size:.92rem; color:var(--ink-2); }
+/* Live price estimate — nightly × nights, shown above the Request button once dates are set. */
+.bw-price{ display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  padding-bottom:14px; margin-bottom:16px; border-bottom:1px solid var(--line); }
+.bw-price[hidden]{ display:none; }
+.bw-price-calc{ font-size:.92rem; color:var(--ink-2); }
+.bw-price-total{ font-family:var(--font-display); font-size:1.35rem; color:var(--ink); white-space:nowrap; }
 /* The date fields are DISPLAYS filled by the calendar. The field the next tap will fill is
    highlighted and shows a small static arrow pointing down to the calendar — this replaces a
    whole instruction row, so the flow is clear without the extra height. */
