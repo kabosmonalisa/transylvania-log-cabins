@@ -1133,6 +1133,8 @@ body.modal-open{ overflow:hidden; }
 /* Centered attributed pull-quote (Bofill) — quote-mark glyph, big serif, name + role. */
 .pull-quote{ max-width:900px; margin:0 auto; text-align:center; }
 .pull-quote .eyebrow{ display:block; margin-bottom:22px; }
+/* Events page — centered contact button row */
+.ev-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:32px; }
 .pull-quote blockquote{ margin:0; font-family:var(--font-display); font-weight:500;
   font-size:clamp(1.7rem,3.3vw,2.85rem); line-height:1.2; color:var(--ink); }
 .pull-quote figcaption{ margin-top:clamp(30px,3.6vw,46px); }
