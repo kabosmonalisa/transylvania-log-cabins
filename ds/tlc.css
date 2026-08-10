@@ -923,7 +923,9 @@ body.lightbox-open{ overflow:hidden; }
    whole instruction row, so the flow is clear without the extra height. */
 .bw-field.is-active{ background:var(--sel); box-shadow:inset 0 -2px 0 var(--ink); }
 .bw-field.is-active .bw-lab{ color:var(--ink); }
-.bw-field.is-active .bw-val::after{ content:"\2193"; margin-left:7px; display:inline-block; color:var(--ink); }
+/* A static, non-moving arrow on each empty date field cues the calendar below — no jumping
+   highlight on the date fields, so picking the start never feels like setting the end. */
+.bw-date .bw-val:not(.set)::after{ content:"\2193"; margin-left:7px; display:inline-block; color:var(--ink-3); }
 .bw-field.bw-date .bw-val{ cursor:default; }
 /* Mobile: Adults on its own row, Check in + Check out side by side (not three tall rows).
    Position-based so it works on the booking page AND the stay pages (same field order). */
