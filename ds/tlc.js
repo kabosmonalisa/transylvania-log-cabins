@@ -20,7 +20,7 @@ window.TLC = (function () {
       { label: "The Loft Treehouse",     href: "/stays/loft-treehouse.html", meta: "Sleeps 2" },
       { label: "The Barn Ensuite",       href: "/stays/barn-ensuite.html",   meta: "Sleeps 2" }
     ] },
-    { key: "events", label: "Events",     href: "#" },
+    { key: "events", label: "Events",     href: "/events.html" },
     { key: "story",  label: "Our story",   href: "/our-story.html" },
     { key: "book",   label: "Book",        href: "/book.html", btn: true }
   ];
@@ -123,7 +123,7 @@ window.TLC = (function () {
             '<nav class="tlc-footer-nav">' +
               '<a href="' + rel("/index.html#collection") + '">The Cabins</a>' +
               '<a href="' + rel("/book.html") + '">Book a stay</a>' +
-              '<a href="#">Events</a>' +
+              '<a href="' + rel("/events.html") + '">Events</a>' +
               '<a href="' + rel("/our-story.html") + '">Our story</a>' +
             '</nav>' +
             '<div class="tlc-footer-social">' +
