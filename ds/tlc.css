@@ -912,15 +912,12 @@ body.lightbox-open{ overflow:hidden; }
 .bw-action{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
 .bw-summary{ font-size:.92rem; color:var(--ink-2); }
 /* The date fields are DISPLAYS filled by the calendar. The field the next tap will fill is
-   highlighted and shows a small bobbing arrow pointing down to the calendar — this replaces a
+   highlighted and shows a small static arrow pointing down to the calendar — this replaces a
    whole instruction row, so the flow is clear without the extra height. */
-@keyframes bw-bob{ 0%,100%{ transform:translateY(-1px); } 50%{ transform:translateY(2px); } }
 .bw-field.is-active{ background:#EDE9E1; box-shadow:inset 0 -2px 0 var(--ink); }
 .bw-field.is-active .bw-lab{ color:var(--ink); }
-.bw-field.is-active .bw-val::after{ content:"\2193"; margin-left:7px; display:inline-block;
-  color:var(--ink); animation:bw-bob 1.4s ease-in-out infinite; }
+.bw-field.is-active .bw-val::after{ content:"\2193"; margin-left:7px; display:inline-block; color:var(--ink); }
 .bw-field.bw-date .bw-val{ cursor:default; }
-@media (prefers-reduced-motion:reduce){ .bw-field.is-active .bw-val::after{ animation:none; } }
 /* Mobile: Adults on its own row, Check in + Check out side by side (not three tall rows).
    Position-based so it works on the booking page AND the stay pages (same field order). */
 @media (max-width:560px){
