@@ -980,8 +980,11 @@ body.lightbox-open{ overflow:hidden; }
 @media (min-width:901px){
   .book-col-stay .book-step{ position:sticky; top:100px; z-index:5; background:var(--paper);
     margin-bottom:0; padding-bottom:22px; }
+  /* Paper cover that hides cards scrolling into the nav gap — shown ONLY once the header
+     is pinned (.is-stuck), so at the top of the page it never overlaps the intro copy above. */
   .book-col-stay .book-step::before{ content:""; position:absolute; left:0; right:0; top:-80px;
-    height:80px; background:var(--paper); }
+    height:80px; background:var(--paper); display:none; }
+  .book-col-stay .book-step.is-stuck::before{ display:block; }
 }
 .book-step-num{ flex:0 0 auto; width:30px; height:30px; border:1px solid var(--ink); border-radius:50%;
   display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-weight:500;
