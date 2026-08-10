@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Zilla+Slab:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../ds/tlc.css?v=197">
+  <link rel="stylesheet" href="../ds/tlc.css?v=198">
 </head>
 <body>
   <div data-tlc-nav data-active="stays"></div>
@@ -89,7 +89,7 @@
         </div>
         <div class="bw-foot">
           <p class="bw-note"><span class="k">available</span> &nbsp; <span class="k off">booked</span> &nbsp;&middot;&nbsp; the hosts confirm your dates within a day</p>
-          <div class="bw-action"><span class="bw-summary" id="bwSummary">Select your dates</span><a class="btn" id="bwRequest" href="../book.html">Request to book</a></div>
+          <div class="bw-action"><span class="bw-summary" id="bwSummary">Select your dates</span><button type="button" class="btn" id="bwRequest" disabled>Pick your dates first</button></div>
         </div>
       </div>
         </aside>
@@ -135,7 +135,7 @@
 
   </main>
   <div data-tlc-footer></div>
-  <script src="../ds/tlc.js?v=197"></script>
+  <script src="../ds/tlc.js?v=198"></script>
   <script>TLC.init({ active:"stays", heroNav:false, footerCta:false });</script>
   <script>
   (function(){var b=document.getElementById('showAll'),lb=document.getElementById('lightbox'),cl=document.getElementById('lbClose');if(!b||!lb)return;
@@ -176,9 +176,10 @@
       outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
       if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5);
         sum.textContent=n+' night'+(n>1?'s':'')+' · '+adults+' adult'+(adults>1?'s':''); }
-      else sum.textContent='Select your dates'; updateDateUX();
+      else sum.textContent='Select your dates'; updateDateUX(); refreshRequest();
     }
     function updateDateUX(){ var fin=document.getElementById('bwFieldIn'),fout=document.getElementById('bwFieldOut'); if(!fin||!fout)return; fin.classList.remove('is-active'); fout.classList.remove('is-active'); if(ci&&co){} else if(ci&&!co){fout.classList.add('is-active');} else {fin.classList.add('is-active');} }
+    function refreshRequest(){ var b=document.getElementById('bwRequest'); if(!b)return; var ok=!!ci&&!!co; b.disabled=!ok; b.textContent=ok?'Request to book':'Pick your dates first'; }
     grid.addEventListener('click',function(e){
       var el=e.target.closest('.bw-day'); if(!el||el.classList.contains('blank')||el.classList.contains('off')) return;
       var o={y:year,m:month,d:+el.dataset.d};
