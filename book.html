@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ds/tlc.css?v=185">
+  <link rel="stylesheet" href="ds/tlc.css?v=186">
 </head>
 <body>
   <div data-tlc-nav data-active="book"></div>
@@ -26,87 +26,98 @@
       <div class="book-layout" data-step="1">
         <div class="book-col-stay">
           <div class="book-step"><span class="book-step-num">1</span><span class="book-step-title">Choose your stay</span></div>
+          <p class="book-step-hint">Browse the cabins and treehouses. <strong>Select</strong> one to book, or open its full page for the details.</p>
           <div class="book-picks">
-            <label class="book-pick">
-              <input type="radio" name="stay" value="log-cabin" data-name="The Transylvania Log Cabin" data-cap="4" checked>
+            <div class="book-pick" data-stay="log-cabin" data-name="The Transylvania Log Cabin" data-cap="4">
               <div class="book-pick-carousel">
                 <div class="bpc-track"><figure><img src="photos/log-cabin/09.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure><figure><img src="photos/log-cabin/04.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure><figure><img src="photos/log-cabin/11.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure><figure><img src="photos/log-cabin/01.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure><figure><img src="photos/log-cabin/06.jpg" alt="The Transylvania Log Cabin" loading="lazy"></figure></div>
                 <button type="button" class="bpc-btn prev" aria-label="Previous photo">&#8249;</button>
                 <button type="button" class="bpc-btn next" aria-label="Next photo">&#8250;</button>
               </div>
-              <span class="book-pick-body">
+              <div class="book-pick-body">
                 <span class="book-pick-name">The Transylvania Log Cabin</span>
                 <span class="book-pick-rating"><span class="sc-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.93 &middot; 486 reviews</span>
                 <span class="book-pick-meta">Cabin &middot; sleeps 4 &middot; pool &amp; jacuzzi &middot; forest view</span>
-                <a class="book-pick-link" href="stays/log-cabin.html">View the full stay &#8594;</a>
-              </span>
-            </label>
-            <label class="book-pick">
-              <input type="radio" name="stay" value="hill-cabin" data-name="The Hill Cabin" data-cap="4">
+                <div class="book-pick-actions">
+                  <button type="button" class="btn book-select">Select this stay</button>
+                  <a class="btn btn-line book-details" href="stays/log-cabin.html">View details</a>
+                </div>
+              </div>
+            </div>
+            <div class="book-pick" data-stay="hill-cabin" data-name="The Hill Cabin" data-cap="4">
               <div class="book-pick-carousel">
                 <div class="bpc-track"><figure><img src="photos/hill/02.jpg" alt="The Hill Cabin" loading="lazy"></figure><figure><img src="photos/hill/13.jpg" alt="The Hill Cabin" loading="lazy"></figure><figure><img src="photos/hill/11.jpg" alt="The Hill Cabin" loading="lazy"></figure><figure><img src="photos/hill/06.jpg" alt="The Hill Cabin" loading="lazy"></figure><figure><img src="photos/hill/03.jpg" alt="The Hill Cabin" loading="lazy"></figure></div>
                 <button type="button" class="bpc-btn prev" aria-label="Previous photo">&#8249;</button>
                 <button type="button" class="bpc-btn next" aria-label="Next photo">&#8250;</button>
               </div>
-              <span class="book-pick-body">
+              <div class="book-pick-body">
                 <span class="book-pick-name">The Hill Cabin</span>
                 <span class="book-pick-rating"><span class="sc-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.95 &middot; 309 reviews</span>
                 <span class="book-pick-meta">Cabin &middot; sleeps 4 &middot; heated pool &middot; mountain view</span>
-                <a class="book-pick-link" href="stays/hill-cabin.html">View the full stay &#8594;</a>
-              </span>
-            </label>
-            <label class="book-pick">
-              <input type="radio" name="stay" value="treehouse" data-name="The Transylvania Treehouse" data-cap="2">
+                <div class="book-pick-actions">
+                  <button type="button" class="btn book-select">Select this stay</button>
+                  <a class="btn btn-line book-details" href="stays/hill-cabin.html">View details</a>
+                </div>
+              </div>
+            </div>
+            <div class="book-pick" data-stay="treehouse" data-name="The Transylvania Treehouse" data-cap="2">
               <div class="book-pick-carousel">
                 <div class="bpc-track"><figure><img src="photos/treehouse/03.jpg" alt="The Transylvania Treehouse" loading="lazy"></figure><figure><img src="photos/treehouse/01.jpg" alt="The Transylvania Treehouse" loading="lazy"></figure><figure><img src="photos/treehouse/04.jpg" alt="The Transylvania Treehouse" loading="lazy"></figure><figure><img src="photos/treehouse/07.jpg" alt="The Transylvania Treehouse" loading="lazy"></figure><figure><img src="photos/treehouse/08.jpg" alt="The Transylvania Treehouse" loading="lazy"></figure></div>
                 <button type="button" class="bpc-btn prev" aria-label="Previous photo">&#8249;</button>
                 <button type="button" class="bpc-btn next" aria-label="Next photo">&#8250;</button>
               </div>
-              <span class="book-pick-body">
+              <div class="book-pick-body">
                 <span class="book-pick-name">The Transylvania Treehouse</span>
                 <span class="book-pick-rating"><span class="sc-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.95 &middot; 460 reviews</span>
                 <span class="book-pick-meta">Treehouse &middot; sleeps 2 &middot; pool &amp; jacuzzi &middot; canopy views</span>
-                <a class="book-pick-link" href="stays/treehouse.html">View the full stay &#8594;</a>
-              </span>
-            </label>
-            <label class="book-pick">
-              <input type="radio" name="stay" value="loft-treehouse" data-name="The Loft Treehouse" data-cap="2">
+                <div class="book-pick-actions">
+                  <button type="button" class="btn book-select">Select this stay</button>
+                  <a class="btn btn-line book-details" href="stays/treehouse.html">View details</a>
+                </div>
+              </div>
+            </div>
+            <div class="book-pick" data-stay="loft-treehouse" data-name="The Loft Treehouse" data-cap="2">
               <div class="book-pick-carousel">
                 <div class="bpc-track"><figure><img src="photos/loft-treehouse/05.jpg" alt="The Loft Treehouse" loading="lazy"></figure><figure><img src="photos/loft-treehouse/03.jpg" alt="The Loft Treehouse" loading="lazy"></figure><figure><img src="photos/loft-treehouse/08.jpg" alt="The Loft Treehouse" loading="lazy"></figure><figure><img src="photos/loft-treehouse/09.jpg" alt="The Loft Treehouse" loading="lazy"></figure><figure><img src="photos/loft-treehouse/12.jpg" alt="The Loft Treehouse" loading="lazy"></figure></div>
                 <button type="button" class="bpc-btn prev" aria-label="Previous photo">&#8249;</button>
                 <button type="button" class="bpc-btn next" aria-label="Next photo">&#8250;</button>
               </div>
-              <span class="book-pick-body">
+              <div class="book-pick-body">
                 <span class="book-pick-name">The Loft Treehouse</span>
                 <span class="book-pick-rating"><span class="sc-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.87 &middot; 316 reviews</span>
                 <span class="book-pick-meta">Treehouse &middot; sleeps 2 &middot; heated pool &middot; loft &amp; fireplace</span>
-                <a class="book-pick-link" href="stays/loft-treehouse.html">View the full stay &#8594;</a>
-              </span>
-            </label>
-            <label class="book-pick">
-              <input type="radio" name="stay" value="barn-ensuite" data-name="The Barn Ensuite" data-cap="2">
+                <div class="book-pick-actions">
+                  <button type="button" class="btn book-select">Select this stay</button>
+                  <a class="btn btn-line book-details" href="stays/loft-treehouse.html">View details</a>
+                </div>
+              </div>
+            </div>
+            <div class="book-pick" data-stay="barn-ensuite" data-name="The Barn Ensuite" data-cap="2">
               <div class="book-pick-carousel">
                 <div class="bpc-track"><figure><img src="photos/barn-ensuite/08.jpg" alt="The Barn Ensuite" loading="lazy"></figure><figure><img src="photos/barn-ensuite/05.jpg" alt="The Barn Ensuite" loading="lazy"></figure><figure><img src="photos/barn-ensuite/03.jpg" alt="The Barn Ensuite" loading="lazy"></figure><figure><img src="photos/barn-ensuite/04.jpg" alt="The Barn Ensuite" loading="lazy"></figure><figure><img src="photos/barn-ensuite/09.jpg" alt="The Barn Ensuite" loading="lazy"></figure></div>
                 <button type="button" class="bpc-btn prev" aria-label="Previous photo">&#8249;</button>
                 <button type="button" class="bpc-btn next" aria-label="Next photo">&#8250;</button>
               </div>
-              <span class="book-pick-body">
+              <div class="book-pick-body">
                 <span class="book-pick-name">The Barn Ensuite</span>
                 <span class="book-pick-rating">Newest stay</span>
                 <span class="book-pick-meta">Barn &middot; sleeps 2 &middot; heated pool &middot; ensuite</span>
-                <a class="book-pick-link" href="stays/barn-ensuite.html">View the full stay &#8594;</a>
-              </span>
-            </label>
+                <div class="book-pick-actions">
+                  <button type="button" class="btn book-select">Select this stay</button>
+                  <a class="btn btn-line book-details" href="stays/barn-ensuite.html">View details</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <button type="button" class="btn book-continue" id="bookContinue">Continue to dates &rarr;</button>
+          <button type="button" class="btn book-continue" id="bookContinue" disabled>Select a stay to continue</button>
         </div>
         <aside>
           <button type="button" class="book-back" id="bookBack">&larr; Change stay</button>
           <div class="book-step"><span class="book-step-num">2</span><span class="book-step-title">Pick your dates</span></div>
           <div class="bw bw-side">
-            <div class="bw-selected" id="bwStay">The Transylvania Log Cabin</div>
+            <div class="bw-selected empty" id="bwStay">No stay selected yet</div>
             <div class="bw-bar">
-              <div class="bw-field"><span class="bw-lab">Adults</span><div class="bw-stepper"><button type="button" class="bw-step-btn" data-step="-1" aria-label="Fewer adults">&minus;</button><span class="bw-step-val" id="bwGuests" data-max="4">4</span><button type="button" class="bw-step-btn" data-step="1" aria-label="More adults">+</button></div></div>
+              <div class="bw-field"><span class="bw-lab">Adults</span><div class="bw-stepper"><button type="button" class="bw-step-btn" data-step="-1" aria-label="Fewer adults">&minus;</button><span class="bw-step-val" id="bwGuests" data-max="4">2</span><button type="button" class="bw-step-btn" data-step="1" aria-label="More adults">+</button></div></div>
               <div class="bw-field"><span class="bw-lab">Check in</span><span class="bw-val" id="bwIn">Add date</span></div>
               <div class="bw-field"><span class="bw-lab">Check out</span><span class="bw-val" id="bwOut">Add date</span></div>
             </div>
@@ -116,7 +127,7 @@
             </div>
             <div class="bw-foot">
               <p class="bw-note"><span class="k">available</span> &nbsp; <span class="k off">booked</span> &nbsp;&middot;&nbsp; the hosts confirm your dates within a day</p>
-              <div class="bw-action"><span class="bw-summary" id="bwSummary">Select your dates</span><a class="btn" id="bwRequest" href="#request">Request to book</a></div>
+              <div class="bw-action"><span class="bw-summary" id="bwSummary">Select your dates</span><button type="button" class="btn" id="bwRequest" disabled>Select a stay first</button></div>
             </div>
           </div>
         </aside>
@@ -136,7 +147,7 @@
     </section>
   </main>
   <div data-tlc-footer></div>
-  <script src="ds/tlc.js?v=185"></script>
+  <script src="ds/tlc.js?v=186"></script>
   <script>TLC.init({ active:"book", heroNav:false });</script>
   <script>
   (function(){
@@ -144,7 +155,8 @@
     var year=2026, month=7, ci=null, co=null;
     var grid=document.getElementById('bwGrid'), ml=document.getElementById('bwMonth');
     var inEl=document.getElementById('bwIn'), outEl=document.getElementById('bwOut'), sum=document.getElementById('bwSummary'), g=document.getElementById('bwGuests');
-    var gmax=+g.getAttribute('data-max')||4, adults=+g.textContent||gmax, stayLabel=document.getElementById('bwStay');
+    var gmax=+g.getAttribute('data-max')||2, adults=+g.textContent||2, stayLabel=document.getElementById('bwStay');
+    var requestBtn=document.getElementById('bwRequest');
     if(!grid) return;
     function off(y,m,d){ return (((d*3)+(m*5))%8)<2; }
     function cmp(a,b){ return (a.y-b.y)||(a.m-b.m)||(a.d-b.d); }
@@ -158,20 +170,47 @@
         if(ci&&co&&cmp(o,ci)>0&&cmp(o,co)<0) c+=' inrange';
         h+='<span class="'+c+'" data-d="'+d+'">'+d+'</span>'; } grid.innerHTML=h; }
     function foot(){ inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci); outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
-      if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); sum.textContent=n+' night'+(n>1?'s':'')+' \u00b7 '+adults+' adult'+(adults>1?'s':''); } else sum.textContent='Select your dates'; }
+      if(ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); sum.textContent=n+' night'+(n>1?'s':'')+' · '+adults+' adult'+(adults>1?'s':''); } else sum.textContent='Select your dates'; }
     grid.addEventListener('click',function(e){ var el=e.target.closest('.bw-day'); if(!el||el.classList.contains('blank')||el.classList.contains('off')) return;
       var o={y:year,m:month,d:+el.dataset.d}; if(!ci||(ci&&co)){ ci=o; co=null; } else if(cmp(o,ci)>0){ co=o; } else { co=ci; ci=o; } render(); foot(); });
     document.getElementById('bwPrev').addEventListener('click',function(){ month--; if(month<0){month=11;year--;} render(); });
     document.getElementById('bwNext').addEventListener('click',function(){ month++; if(month>11){month=0;year++;} render(); });
     Array.prototype.forEach.call(document.querySelectorAll('.bw-step-btn'),function(b){ b.addEventListener('click',function(){ adults=Math.max(1,Math.min(gmax,adults+(+b.getAttribute('data-step')))); g.textContent=adults; foot(); }); });
-    Array.prototype.forEach.call(document.querySelectorAll('input[name=stay]'),function(r){ r.addEventListener('change',function(){ if(!r.checked) return;
-      stayLabel.textContent=r.getAttribute('data-name'); gmax=+r.getAttribute('data-cap'); adults=Math.min(adults,gmax); g.setAttribute('data-max',gmax); g.textContent=adults; foot(); }); });
-    render(); foot();
+
+    // --- Stay selection: click Select to choose (or click again to deselect) ---
+    var picks=document.querySelectorAll('.book-pick');
+    var selected=null;
+    var cont=document.getElementById('bookContinue');
+    function setBtn(p,on){ var b=p.querySelector('.book-select'); if(b) b.textContent = on ? 'Selected ✓' : 'Select this stay'; p.classList.toggle('selected', on); }
+    function updateStep2(){
+      if(selected){
+        stayLabel.textContent=selected.getAttribute('data-name'); stayLabel.classList.remove('empty');
+        gmax=+selected.getAttribute('data-cap'); adults=Math.min(adults,gmax); g.setAttribute('data-max',gmax); g.textContent=adults;
+        requestBtn.disabled=false; requestBtn.textContent='Request to book';
+        if(cont){ cont.disabled=false; cont.textContent='Continue to dates →'; }
+      } else {
+        stayLabel.textContent='No stay selected yet'; stayLabel.classList.add('empty');
+        requestBtn.disabled=true; requestBtn.textContent='Select a stay first';
+        if(cont){ cont.disabled=true; cont.textContent='Select a stay to continue'; }
+      }
+      foot();
+    }
+    Array.prototype.forEach.call(picks,function(p){
+      var btn=p.querySelector('.book-select'); if(!btn) return;
+      btn.addEventListener('click',function(){
+        if(selected===p){ setBtn(p,false); selected=null; }
+        else { if(selected) setBtn(selected,false); setBtn(p,true); selected=p; }
+        updateStep2();
+      });
+    });
+
+    render(); updateStep2();
+
     // Mobile wizard: step 1 (choose) -> step 2 (dates) as separate screens.
     var layout=document.querySelector('.book-layout');
-    var cont=document.getElementById('bookContinue'), back=document.getElementById('bookBack');
+    var back=document.getElementById('bookBack');
     function goStep(n){ layout.setAttribute('data-step',n); var y=layout.getBoundingClientRect().top+window.scrollY-90; window.scrollTo({top:Math.max(0,y),behavior:'smooth'}); }
-    if(cont) cont.addEventListener('click',function(){ goStep('2'); });
+    if(cont) cont.addEventListener('click',function(){ if(cont.disabled) return; goStep('2'); });
     if(back) back.addEventListener('click',function(){ goStep('1'); });
   })();
   </script>

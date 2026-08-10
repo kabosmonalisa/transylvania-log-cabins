@@ -181,6 +181,8 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 /* Ghost / outline — the quiet secondary */
 .btn-line{ --_bg:transparent; --_fg:var(--ink); --_bd:var(--line-2); }
 .btn-line:hover{ --_bg:var(--ink); --_fg:var(--paper); --_bd:var(--ink); }
+.btn:disabled, .btn[disabled]{ opacity:.38; cursor:not-allowed; }
+.btn:disabled:hover{ --_bg:var(--ink); --_fg:var(--paper); --_bd:var(--ink); }
 /* On dark sections */
 .on-invert .btn{ --_bg:var(--paper); --_fg:var(--ink); --_bd:var(--paper); }
 .on-invert .btn:hover{ --_bg:transparent; --_fg:var(--paper); }
@@ -657,6 +659,7 @@ body.drawer-open{ overflow:hidden; }
 @media (max-width: 760px){
   .tlc-links{ display:none; }
   .tlc-burger{ display:block; }
+  .tlc-nav-inner{ align-items:center; }
   .split, .split.reverse{ grid-template-columns:1fr; gap:32px; }
   .split.reverse .split-media{ order:0; }
   .grid-stays{ grid-template-columns:1fr; }
@@ -968,19 +971,13 @@ body.lightbox-open{ overflow:hidden; }
   font-size:.82rem; line-height:1; color:var(--ink); }
 .book-step-title{ font-family:var(--font-display); font-size:clamp(1.25rem,2vw,1.5rem); line-height:1; color:var(--ink); }
 .book-pick{ position:relative; display:grid; grid-template-columns:48% 1fr; align-items:center; gap:clamp(28px,3vw,48px);
-  padding:clamp(24px,2.4vw,34px); border:1px solid var(--line); border-radius:var(--r-md); cursor:pointer;
+  padding:clamp(24px,2.4vw,34px); border:1px solid var(--line); border-radius:var(--r-md);
   transition:border-color .18s ease, background .18s ease; }
 .book-pick:hover{ border-color:var(--line-2); }
-/* Selection control: soft borderless button in the empty bottom-right corner (on paper,
-   never over the photo). No lines, no shadow — a soft disc that fills ink with a white
-   check when selected. */
-.book-pick > input{ position:absolute; bottom:18px; right:18px; z-index:3; margin:0; cursor:pointer;
-  appearance:none; -webkit-appearance:none; width:30px; height:30px; border-radius:50%;
-  border:none; background:#F1EEE7; box-shadow:none;
-  transition:background .15s ease; }
-.book-pick:hover > input{ background:#E8E3D9; }
-.book-pick > input:checked{ background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/15px 15px no-repeat; }
-.book-pick:has(input:checked){ border-color:var(--ink); background:#FBFAF7; }
+/* Selected card — ink border + soft tint. Selection is via the Select button. */
+.book-pick.selected{ border-color:var(--ink); background:#FBFAF7; }
+.book-step-hint{ margin:14px 0 30px; font-size:.92rem; color:var(--ink-3); line-height:1.5; max-width:54ch; }
+.book-step-hint strong{ color:var(--ink); font-weight:600; }
 .book-pick-carousel{ position:relative; width:100%; border-radius:var(--r-md); overflow:hidden; }
 .bpc-track{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; aspect-ratio:3/2; }
 .bpc-track::-webkit-scrollbar{ display:none; }
@@ -999,13 +996,12 @@ body.lightbox-open{ overflow:hidden; }
 .book-pick-rating{ font-size:.88rem; color:var(--ink-2); margin-top:12px; }
 .book-pick-rating .sc-star{ color:var(--ink); font-size:.7em; letter-spacing:.04em; margin-right:.25em; }
 .book-pick-meta{ font-size:.92rem; color:var(--ink-3); margin-top:9px; line-height:1.45; }
-/* Give the link its own room — a hairline separation from the meta above it. */
-.book-pick-link{ margin-top:26px; padding-top:22px; border-top:1px solid var(--line); width:100%;
-  font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); text-decoration:none;
-  transition:color .18s ease; }
-.book-pick-link:hover{ color:var(--ink); }
+/* Two clear actions — Select (primary) + View details (secondary) — set off by a rule. */
+.book-pick-actions{ display:flex; gap:12px; width:100%; margin-top:24px; padding-top:22px; border-top:1px solid var(--line); }
+.book-pick-actions .btn{ flex:1; justify-content:center; text-align:center; padding:12px 16px; font-size:.82rem; }
 @media (max-width:820px){ .book-pick{ grid-template-columns:1fr; gap:20px; } .book-pick-carousel{ width:100%; } }
 .bw-selected{ padding:16px 20px; border-bottom:1px solid var(--line); font-family:var(--font-display); font-size:1.12rem; color:var(--ink); }
+.bw-selected.empty{ color:var(--ink-3); font-style:italic; }
 @media (max-width:900px){ .book-layout{ grid-template-columns:1fr; } .book-layout aside{ position:static; } }
 /* Home atmosphere carousel (4 visible, scrollable) */
 .food-carousel-wrap{ position:relative; max-width:var(--container); margin:clamp(40px,5vw,68px) auto 0; }
