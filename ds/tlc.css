@@ -525,20 +525,26 @@ body.drawer-open{ overflow:hidden; }
 /* Modal — review-and-send overlay (used by the booking request flow) */
 .tlc-modal-backdrop{ position:fixed; inset:0; background:rgba(10,10,10,.55); display:none; align-items:center; justify-content:center; padding:20px; z-index:300; }
 .tlc-modal-backdrop.open{ display:flex; }
-.tlc-modal{ position:relative; background:var(--paper); width:100%; max-width:500px; max-height:90vh; overflow:auto; border-radius:var(--r-sm); padding:clamp(26px,4vw,38px); box-shadow:0 30px 80px rgba(0,0,0,.3); }
-.tlc-modal h3{ font-family:var(--font-display); font-weight:500; font-size:1.75rem; margin:6px 0 14px; }
-.tlc-modal-x{ position:absolute; top:14px; right:16px; width:34px; height:34px; background:none; border:0; font-size:1.5rem; line-height:1; cursor:pointer; color:var(--ink-2); }
+.tlc-modal{ position:relative; text-align:left; background:var(--paper); width:100%; max-width:460px; max-height:92vh; overflow:auto; border-radius:var(--r-sm); padding:clamp(30px,4.5vw,44px) clamp(26px,4vw,38px); box-shadow:0 30px 80px rgba(0,0,0,.3); }
+/* header block — centered */
+.tlc-modal .eyebrow{ display:block; text-align:center; margin-bottom:14px; }
+.tlc-modal h3{ font-family:var(--font-display); font-weight:500; font-size:1.55rem; line-height:1.12; text-align:center; margin:0 0 20px; }
+.rm-summary{ font-size:.92rem; line-height:1.5; color:var(--ink-2); text-align:center; margin:0 0 28px; padding-bottom:24px; border-bottom:1px solid var(--line); }
+.tlc-modal-x{ position:absolute; top:16px; right:18px; width:32px; height:32px; background:none; border:0; font-size:1.45rem; line-height:1; cursor:pointer; color:var(--ink-2); }
 .tlc-modal-x:hover{ color:var(--ink); }
-.rm-summary{ font-size:.9rem; color:var(--ink-2); padding-bottom:16px; margin-bottom:4px; border-bottom:1px solid var(--line); }
-.rm-label{ display:block; font-size:.7rem; letter-spacing:var(--track-label); text-transform:uppercase; color:var(--ink-2); margin:18px 0 8px; }
+/* form block — left-aligned, even rhythm between groups */
+.rm-label{ display:block; font-size:.7rem; letter-spacing:var(--track-label); text-transform:uppercase; color:var(--ink-2); margin:24px 0 10px; }
+.rm-summary + .rm-label{ margin-top:0; }
 .rm-label span{ text-transform:none; letter-spacing:0; opacity:.7; }
-.rm-input,.rm-textarea{ width:100%; font-family:var(--font-body); font-size:1rem; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:var(--r-sm); padding:12px 14px; }
+.rm-input,.rm-textarea{ width:100%; font-family:var(--font-body); font-size:1rem; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:var(--r-sm); padding:13px 15px; }
 .rm-input:focus,.rm-textarea:focus{ outline:none; border-color:var(--ink); }
-.rm-textarea{ resize:vertical; line-height:1.55; }
-.tlc-modal-actions{ display:flex; gap:12px; margin-top:22px; }
-.tlc-modal-actions .btn{ flex:1; text-align:center; }
-.btn.is-disabled{ opacity:.4; cursor:not-allowed; }
-.rm-note{ font-size:.78rem; color:var(--ink-2); text-align:center; margin-top:14px; }
+.rm-textarea{ resize:vertical; line-height:1.55; min-height:130px; }
+.tlc-modal-actions{ margin-top:30px; }
+.tlc-modal-actions .btn{ width:100%; text-align:center; }
+.tlc-modal-actions .btn.is-disabled{ opacity:.35; pointer-events:none; }
+.rm-note{ font-size:.78rem; line-height:1.5; color:var(--ink-2); text-align:center; margin-top:14px; }
+.rm-back{ display:block; margin:16px auto 0; padding:6px 10px; background:none; border:0; font-family:var(--font-body); font-size:.85rem; color:var(--ink-2); cursor:pointer; transition:color .2s var(--ease); }
+.rm-back:hover{ color:var(--ink); }
 
 /* 9e. Feature / value list */
 .values{ display:grid; grid-template-columns:repeat(5,1fr); gap:28px; max-width:var(--container); margin:0 auto; }
