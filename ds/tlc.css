@@ -523,27 +523,30 @@ body.drawer-open{ overflow:hidden; }
 .gallery img{ width:100%; height:100%; object-fit:cover; }
 
 /* Modal — review-and-send overlay (used by the booking request flow) */
-.tlc-modal-backdrop{ position:fixed; inset:0; background:rgba(10,10,10,.55); display:none; align-items:center; justify-content:center; padding:20px; z-index:300; }
+.tlc-modal-backdrop{ position:fixed; inset:0; background:rgba(10,10,10,.58); display:none; align-items:center; justify-content:center; padding:20px; z-index:300; }
 .tlc-modal-backdrop.open{ display:flex; }
-.tlc-modal{ position:relative; text-align:left; background:var(--paper); width:100%; max-width:460px; max-height:92vh; overflow:auto; border-radius:var(--r-sm); padding:clamp(30px,4.5vw,44px) clamp(26px,4vw,38px); box-shadow:0 30px 80px rgba(0,0,0,.3); }
-/* header block — centered */
-.tlc-modal .eyebrow{ display:block; text-align:center; margin-bottom:14px; }
-.tlc-modal h3{ font-family:var(--font-display); font-weight:500; font-size:1.55rem; line-height:1.12; text-align:center; margin:0 0 20px; }
-.rm-summary{ font-size:.92rem; line-height:1.5; color:var(--ink-2); text-align:center; margin:0 0 28px; padding-bottom:24px; border-bottom:1px solid var(--line); }
-.tlc-modal-x{ position:absolute; top:16px; right:18px; width:32px; height:32px; background:none; border:0; font-size:1.45rem; line-height:1; cursor:pointer; color:var(--ink-2); }
-.tlc-modal-x:hover{ color:var(--ink); }
-/* form block — left-aligned, even rhythm between groups */
-.rm-label{ display:block; font-size:.7rem; letter-spacing:var(--track-label); text-transform:uppercase; color:var(--ink-2); margin:24px 0 10px; }
-.rm-summary + .rm-label{ margin-top:0; }
+.req-modal{ position:relative; text-align:left; background:var(--paper); width:100%; max-width:600px; max-height:92vh; overflow:auto; border-radius:var(--r-sm); padding:clamp(36px,5vw,60px) clamp(30px,5vw,64px); box-shadow:0 40px 100px rgba(0,0,0,.32); }
+/* header — centered, editorial */
+.req-modal .eyebrow{ display:block; text-align:center; margin-bottom:16px; }
+.req-modal h3{ font-family:var(--font-display); font-weight:500; font-size:clamp(1.9rem,3.4vw,2.35rem); line-height:1.08; text-align:center; margin:0 0 30px; }
+.req-modal-x{ position:absolute; top:18px; right:20px; width:34px; height:34px; background:none; border:0; font-size:1.5rem; line-height:1; cursor:pointer; color:var(--ink-2); }
+.req-modal-x:hover{ color:var(--ink); }
+/* booking recap */
+.rm-recap{ text-align:center; margin:0 0 34px; padding-bottom:30px; border-bottom:1px solid var(--line); }
+.rm-recap-stay{ display:block; font-family:var(--font-display); font-size:1.25rem; color:var(--ink); margin-bottom:8px; }
+.rm-recap-meta{ display:block; font-size:.92rem; color:var(--ink-2); }
+/* form — left-aligned, even rhythm */
+.rm-label{ display:block; font-size:.7rem; letter-spacing:var(--track-label); text-transform:uppercase; color:var(--ink-2); margin:26px 0 11px; }
+.rm-recap + .rm-label{ margin-top:0; }
 .rm-label span{ text-transform:none; letter-spacing:0; opacity:.7; }
-.rm-input,.rm-textarea{ width:100%; font-family:var(--font-body); font-size:1rem; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:var(--r-sm); padding:13px 15px; }
+.rm-input,.rm-textarea{ width:100%; font-family:var(--font-body); font-size:1rem; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:var(--r-sm); padding:14px 16px; }
 .rm-input:focus,.rm-textarea:focus{ outline:none; border-color:var(--ink); }
-.rm-textarea{ resize:vertical; line-height:1.55; min-height:130px; }
-.tlc-modal-actions{ margin-top:30px; }
-.tlc-modal-actions .btn{ width:100%; text-align:center; }
-.tlc-modal-actions .btn.is-disabled{ opacity:.35; pointer-events:none; }
-.rm-note{ font-size:.78rem; line-height:1.5; color:var(--ink-2); text-align:center; margin-top:14px; }
-.rm-back{ display:block; margin:16px auto 0; padding:6px 10px; background:none; border:0; font-family:var(--font-body); font-size:.85rem; color:var(--ink-2); cursor:pointer; transition:color .2s var(--ease); }
+.rm-textarea{ resize:vertical; line-height:1.55; min-height:124px; }
+/* helper sits ABOVE the CTA so the button isn't crowded */
+.rm-hint{ font-size:.84rem; line-height:1.55; color:var(--ink-2); text-align:center; margin:30px 0 20px; }
+.rm-send{ display:block; width:100%; text-align:center; }
+.btn.is-disabled{ opacity:.35; pointer-events:none; }
+.rm-back{ display:block; margin:20px auto 0; padding:6px 10px; background:none; border:0; font-family:var(--font-body); font-size:.85rem; color:var(--ink-2); cursor:pointer; transition:color .2s var(--ease); }
 .rm-back:hover{ color:var(--ink); }
 
 /* 9e. Feature / value list */

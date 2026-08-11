@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ds/tlc.css?v=219">
+  <link rel="stylesheet" href="ds/tlc.css?v=220">
 </head>
 <body>
   <div data-tlc-nav data-active="book"></div>
@@ -158,19 +158,17 @@
 
   <!-- Review-and-send popup: opens on "Request to book"; keeps the calendar page uncluttered -->
   <div class="tlc-modal-backdrop" id="reqModal" aria-hidden="true">
-    <div class="tlc-modal" role="dialog" aria-modal="true" aria-labelledby="rmTitle">
-      <button type="button" class="tlc-modal-x" id="rmClose" aria-label="Close">&times;</button>
+    <div class="req-modal" role="dialog" aria-modal="true" aria-labelledby="rmTitle">
+      <button type="button" class="req-modal-x" id="rmClose" aria-label="Close">&times;</button>
       <span class="eyebrow">Almost there</span>
       <h3 id="rmTitle">Send your <span class="script">request</span>.</h3>
-      <p class="rm-summary" id="rmSummary"></p>
+      <div class="rm-recap" id="rmSummary"></div>
       <label class="rm-label" for="rmPhone">Your phone number</label>
       <input type="tel" id="rmPhone" class="rm-input" placeholder="+40 7xx xxx xxx" autocomplete="tel">
       <label class="rm-label" for="rmMsg">Your message <span>&mdash; edit it if you like</span></label>
-      <textarea id="rmMsg" class="rm-textarea" rows="6"></textarea>
-      <div class="tlc-modal-actions">
-        <a class="btn is-disabled" id="rmSend" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
-      </div>
-      <p class="rm-note">This opens WhatsApp with your message ready to send to Rares &amp; Gabie.</p>
+      <textarea id="rmMsg" class="rm-textarea" rows="5"></textarea>
+      <p class="rm-hint">This opens WhatsApp with your message ready &mdash; Rares &amp; Gabie reply to you there.</p>
+      <a class="btn rm-send is-disabled" id="rmSend" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
       <button type="button" class="rm-back" id="rmBack">&larr; Back</button>
     </div>
   </div>
@@ -354,7 +352,7 @@
     function syncMsg(){ if(!msgEdited){ rmMsg.value=buildMsg(); } updateSend(); }
     function openModal(){
       msgEdited=false;
-      rmSummary.textContent=selected.getAttribute('data-name')+' · '+fmt(ci)+' → '+fmt(co)+' · '+nightsWord(priceNights)+' · '+guestsWord(adults);
+      rmSummary.innerHTML='<span class="rm-recap-stay">'+selected.getAttribute('data-name')+'</span><span class="rm-recap-meta">'+fmt(ci)+' → '+fmt(co)+' · '+nightsWord(priceNights)+' · '+guestsWord(adults)+'</span>';
       rmMsg.value=buildMsg(); updateSend();
       modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
       setTimeout(function(){ rmPhone.focus(); },60);
