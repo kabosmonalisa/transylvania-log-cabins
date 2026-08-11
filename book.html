@@ -179,7 +179,7 @@
         if(ci&&co&&cmp(o,ci)>0&&cmp(o,co)<0) c+=' inrange';
         h+='<span class="'+c+'" data-d="'+d+'">'+d+'</span>'; } grid.innerHTML=h; }
     function foot(){ inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci); outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
-      if(ci&&co){ sum.textContent = adults>=1 ? (adults+' adult'+(adults>1?'s':'')) : 'Add your guests'; } else sum.textContent='Select your dates'; if(typeof refreshRequest==='function') refreshRequest(); updatePrice(); if(typeof updateCtaBar==='function') updateCtaBar(); updateDateUX(); }
+      if(ci&&co){ sum.textContent = adults>=1 ? '' : 'Add your guests'; } else sum.textContent='Select your dates'; if(typeof refreshRequest==='function') refreshRequest(); updatePrice(); if(typeof updateCtaBar==='function') updateCtaBar(); updateDateUX(); }
     // Highlight the field the user should act on next — guests first, then check-in, then check-out.
     function updateDateUX(){
       var fa=document.querySelector('.bw-field-adults'), fin=document.getElementById('bwFieldIn'), fout=document.getElementById('bwFieldOut');
