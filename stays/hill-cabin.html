@@ -173,7 +173,7 @@
     function foot(){
       inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci);
       outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
-      if(ci&&co){ sum.textContent = adults>=1 ? (adults+' adult'+(adults>1?'s':'')) : 'Add your guests'; } else sum.textContent='Select your dates'; updateDateUX(); refreshRequest(); updatePrice();
+      if(ci&&co){ sum.textContent = adults>=1 ? '' : 'Add your guests'; } else sum.textContent='Select your dates'; updateDateUX(); refreshRequest(); updatePrice();
     }
     function updateDateUX(){ var fa=document.querySelector('.bw-field-adults'),fin=document.getElementById('bwFieldIn'),fout=document.getElementById('bwFieldOut'); if(!fin||!fout)return; [fa,fin,fout].forEach(function(el){if(el)el.classList.remove('is-active');}); }
     function refreshRequest(){ var b=document.getElementById('bwRequest'); if(!b)return; var ok=adults>=1&&!!ci&&!!co; b.disabled=!ok; b.textContent=ok?'Request to book':(adults<1?'Add guests first':'Pick your dates first'); }

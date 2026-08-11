@@ -147,7 +147,7 @@
         if(ci&&co&&cmp(o,ci)>0&&cmp(o,co)<0) c+=' inrange';
         h+='<span class="'+c+'" data-d="'+d+'">'+d+'</span>'; } grid.innerHTML=h; }
     function foot(){ inEl.textContent=fmt(ci); inEl.classList.toggle('set',!!ci); outEl.textContent=fmt(co); outEl.classList.toggle('set',!!co);
-      if(ci&&co){ sum.textContent = adults>=1 ? (adults+' adult'+(adults>1?'s':'')) : 'Add your guests'; } else sum.textContent='Select your dates'; updateDateUX(); refreshRequest(); updatePrice(); }
+      if(ci&&co){ sum.textContent = adults>=1 ? '' : 'Add your guests'; } else sum.textContent='Select your dates'; updateDateUX(); refreshRequest(); updatePrice(); }
     function updateDateUX(){ var fa=document.querySelector('.bw-field-adults'),fin=document.getElementById('bwFieldIn'),fout=document.getElementById('bwFieldOut'); if(!fin||!fout)return; [fa,fin,fout].forEach(function(el){if(el)el.classList.remove('is-active');}); }
     function refreshRequest(){ var b=document.getElementById('bwRequest'); if(!b)return; var ok=adults>=1&&!!ci&&!!co; b.disabled=!ok; b.textContent=ok?'Request to book':(adults<1?'Add guests first':'Pick your dates first'); }
     function updatePrice(){ var el=document.getElementById('bwPrice'); if(!el)return; var rate=+(document.querySelector('.bw').getAttribute('data-rate'))||0; if(rate&&ci&&co){ var n=Math.round((new Date(co.y,co.m,co.d)-new Date(ci.y,ci.m,ci.d))/864e5); document.getElementById('bwPriceCalc').textContent='€'+rate+' × '+n+' night'+(n>1?'s':''); document.getElementById('bwPriceTotal').textContent='€'+(rate*n); el.hidden=false; } else { el.hidden=true; } }
