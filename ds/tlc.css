@@ -518,6 +518,8 @@ body.drawer-open{ overflow:hidden; }
 .gallery{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; max-width:var(--container); margin:0 auto; }
 .gallery figure{ aspect-ratio:1; overflow:hidden; border-radius:var(--r-sm); }
 .gallery figure:first-child{ grid-column:span 2; grid-row:span 2; aspect-ratio:auto; }
+/* even variant — all tiles equal, fills complete rows (no oversized first tile) */
+.gallery--even figure:first-child{ grid-column:auto; grid-row:auto; aspect-ratio:1; }
 .gallery img{ width:100%; height:100%; object-fit:cover; }
 
 /* 9e. Feature / value list */
@@ -672,6 +674,7 @@ body.drawer-open{ overflow:hidden; }
   .grid-stays{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:repeat(2,1fr); }
   .gallery figure:first-child{ grid-column:span 2; grid-row:auto; aspect-ratio:16/10; }
+  .gallery--even figure:first-child{ grid-column:auto; aspect-ratio:1; }
   .values{ grid-template-columns:1fr; }
   .value:nth-child(n+2){ padding-top:22px; border-top:1px solid var(--line); }
   .amenities{ columns:1; }
