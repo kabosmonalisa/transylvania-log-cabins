@@ -528,13 +528,13 @@ body.drawer-open{ overflow:hidden; }
 .req-modal{ position:relative; text-align:left; background:var(--paper); width:100%; max-width:600px; max-height:92vh; overflow:auto; border-radius:var(--r-sm); padding:clamp(36px,5vw,60px) clamp(30px,5vw,64px); box-shadow:0 40px 100px rgba(0,0,0,.32); }
 /* header — centered, editorial */
 .req-modal .eyebrow{ display:block; text-align:center; margin-bottom:16px; }
-.req-modal h3{ font-family:var(--font-display); font-weight:500; font-size:clamp(1.9rem,3.4vw,2.35rem); line-height:1.08; text-align:center; margin:0 0 30px; }
+.req-modal h3{ font-family:var(--font-display); font-weight:500; font-size:clamp(1.8rem,3.4vw,2.8rem); line-height:1.08; text-align:center; margin:0 0 30px; }
 .req-modal-x{ position:absolute; top:18px; right:20px; width:34px; height:34px; background:none; border:0; font-size:1.5rem; line-height:1; cursor:pointer; color:var(--ink-2); }
 .req-modal-x:hover{ color:var(--ink); }
 /* booking recap */
-.rm-recap{ text-align:center; margin:0 0 34px; padding-bottom:30px; border-bottom:1px solid var(--line); }
-.rm-recap-stay{ display:block; font-family:var(--font-display); font-size:1.25rem; color:var(--ink); margin-bottom:8px; }
-.rm-recap-meta{ display:block; font-size:.92rem; color:var(--ink-2); }
+.rm-recap{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:6px 20px; margin:0 0 34px; padding-bottom:28px; border-bottom:1px solid var(--line); }
+.rm-recap-stay{ font-family:var(--font-body); font-weight:600; font-size:1rem; line-height:1.3; color:var(--ink); }
+.rm-recap-meta{ font-family:var(--font-body); font-size:.9rem; color:var(--ink-2); }
 /* form — left-aligned, even rhythm */
 .rm-label{ display:block; font-size:.7rem; letter-spacing:var(--track-label); text-transform:uppercase; color:var(--ink-2); margin:26px 0 11px; }
 .rm-recap + .rm-label{ margin-top:0; }
