@@ -178,8 +178,9 @@ window.TLC = (function () {
 
   // Thank-you modal — fires when a booking request is sent (any .bw request button).
   function initThankYou(){
+    var hasPopup = !!document.getElementById('reqModal');
     var triggers = document.querySelectorAll('.bw-action .btn');
-    if (!triggers.length) return;
+    if (!triggers.length && !hasPopup) return;
     var overlay = document.createElement('div');
     overlay.className = 'tlc-modal-overlay';
     overlay.setAttribute('role', 'dialog');
@@ -189,17 +190,62 @@ window.TLC = (function () {
       '<div class="tlc-modal">' +
         '<button class="tlc-modal-close" aria-label="Close">&times;</button>' +
         '<div class="tlc-modal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>' +
-        '<span class="eyebrow">Request received</span>' +
+        '<span class="eyebrow">Request sent</span>' +
         '<h2>Thank you.</h2>' +
-        '<p>Your request is with Rares &amp; Gabie. They&rsquo;ll get back to you within a day to confirm your dates.</p>' +
-        '<button class="btn" type="button" data-modal-close>Close</button>' +
+        '<p>Your message is on its way to Rares &amp; Gabie &mdash; they&rsquo;ll reply on WhatsApp, usually within a day.</p>' +
+        '<div class="tlc-rate" data-rate="0">' +
+          '<span class="tlc-rate-q">How was the website?</span>' +
+          '<div class="tlc-stars" role="radiogroup" aria-label="Rate the website">' +
+            '<button type="button" class="tlc-star" data-v="1" aria-label="1 star">★</button>' +
+            '<button type="button" class="tlc-star" data-v="2" aria-label="2 stars">★</button>' +
+            '<button type="button" class="tlc-star" data-v="3" aria-label="3 stars">★</button>' +
+            '<button type="button" class="tlc-star" data-v="4" aria-label="4 stars">★</button>' +
+            '<button type="button" class="tlc-star" data-v="5" aria-label="5 stars">★</button>' +
+          '</div>' +
+        '</div>' +
+        '<textarea class="tlc-rate-note" rows="2" placeholder="Anything we could do better? (optional)"></textarea>' +
+        '<button class="btn tlc-rate-send" type="button">Send feedback</button>' +
+        '<button class="tlc-modal-skip" type="button" data-modal-close>No thanks</button>' +
       '</div>';
     document.body.appendChild(overlay);
     function open(){ overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); document.body.classList.add('modal-open'); }
     function shut(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); document.body.classList.remove('modal-open'); }
-    Array.prototype.forEach.call(triggers, function (b) {
-      b.addEventListener('click', function (e) { e.preventDefault(); open(); });
+
+    // Star rating
+    var rateWrap = overlay.querySelector('.tlc-rate');
+    var stars = overlay.querySelectorAll('.tlc-star');
+    function paint(v){ Array.prototype.forEach.call(stars, function(s){ s.classList.toggle('on', +s.getAttribute('data-v') <= v); }); }
+    Array.prototype.forEach.call(stars, function(s){
+      var v = +s.getAttribute('data-v');
+      s.addEventListener('mouseenter', function(){ paint(v); });
+      s.addEventListener('click', function(){ rateWrap.setAttribute('data-rate', v); paint(v); });
     });
+    rateWrap.addEventListener('mouseleave', function(){ paint(+rateWrap.getAttribute('data-rate')); });
+
+    // Send feedback. NOTE: real capture needs a form endpoint (e.g. Formspree) — wire it here.
+    overlay.querySelector('.tlc-rate-send').addEventListener('click', function(){
+      var rating = +rateWrap.getAttribute('data-rate');
+      var note = (overlay.querySelector('.tlc-rate-note') || {}).value || '';
+      // TODO: fetch('<FORMSPREE_ENDPOINT>', {method:'POST', body: JSON.stringify({rating, note})})
+      overlay.querySelector('.tlc-modal').innerHTML =
+        '<button class="tlc-modal-close" aria-label="Close">&times;</button>' +
+        '<div class="tlc-modal-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>' +
+        '<h2>Thank you.</h2>' +
+        '<p>We appreciate you taking the time.</p>' +
+        '<button class="btn" type="button" data-modal-close>Close</button>';
+    });
+
+    if (hasPopup) {
+      // WhatsApp flow: show the thank-you when the guest RETURNS to the site after a send.
+      var reveal = function(){ if (window.__tlcAwaitThanks) { window.__tlcAwaitThanks = false; open(); } };
+      document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'visible') reveal(); });
+      window.addEventListener('focus', reveal);
+    } else {
+      // Legacy pages: open immediately on the request click.
+      Array.prototype.forEach.call(triggers, function (b) {
+        b.addEventListener('click', function (e) { e.preventDefault(); open(); });
+      });
+    }
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay || e.target.hasAttribute('data-modal-close') || (e.target.closest && e.target.closest('.tlc-modal-close'))) shut();
     });

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="ds/tlc.css?v=225">
+  <link rel="stylesheet" href="ds/tlc.css?v=226">
 </head>
 <body>
   <div data-tlc-nav data-active="book"></div>
@@ -168,14 +168,13 @@
       <label class="rm-label" for="rmMsg">Your message <span>&mdash; edit it if you like</span></label>
       <textarea id="rmMsg" class="rm-textarea" rows="5"></textarea>
       <div class="rm-actions">
-        <button type="button" class="rm-back" id="rmBack">&larr; Back</button>
         <a class="btn rm-send is-disabled" id="rmSend" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
       </div>
     </div>
   </div>
 
   <div data-tlc-footer></div>
-  <script src="ds/tlc.js?v=208"></script>
+  <script src="ds/tlc.js?v=226"></script>
   <script>TLC.init({ active:"book", heroNav:false });</script>
   <script>
   (function(){
@@ -334,7 +333,6 @@
         rmPhone=document.getElementById('rmPhone'),
         rmMsg=document.getElementById('rmMsg'),
         rmSend=document.getElementById('rmSend'),
-        rmBack=document.getElementById('rmBack'),
         rmClose=document.getElementById('rmClose'),
         msgEdited=false;
     function nightsWord(n){ return n+' night'+(n>1?'s':''); }
@@ -362,11 +360,10 @@
     requestBtn.addEventListener('click',function(){ if(!requestBtn.disabled) openModal(); });
     rmPhone.addEventListener('input',syncMsg);
     rmMsg.addEventListener('input',function(){ msgEdited=true; updateSend(); });
-    rmBack.addEventListener('click',closeModal);
     rmClose.addEventListener('click',closeModal);
     modal.addEventListener('click',function(e){ if(e.target===modal) closeModal(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&modal.classList.contains('open')) closeModal(); });
-    rmSend.addEventListener('click',function(e){ if(rmSend.classList.contains('is-disabled')){ e.preventDefault(); rmPhone.focus(); } else { closeModal(); } });
+    rmSend.addEventListener('click',function(e){ if(rmSend.classList.contains('is-disabled')){ e.preventDefault(); rmPhone.focus(); } else { window.__tlcAwaitThanks=true; closeModal(); } });
   })();
   </script>
   <script>

@@ -1117,6 +1117,17 @@ body.lightbox-open{ overflow:hidden; }
   font-size:1.5rem; line-height:1; color:var(--ink-3); cursor:pointer; transition:color .18s ease; }
 .tlc-modal-close:hover{ color:var(--ink); }
 body.modal-open{ overflow:hidden; }
+/* Thank-you rating + note */
+.tlc-rate{ margin:6px 0 18px; }
+.tlc-rate-q{ display:block; font-size:.7rem; letter-spacing:var(--track-label); text-transform:uppercase; color:var(--ink-2); margin-bottom:12px; }
+.tlc-stars{ display:inline-flex; gap:8px; }
+.tlc-star{ background:none; border:0; cursor:pointer; font-size:1.85rem; line-height:1; color:var(--line); padding:2px; transition:color .15s ease; }
+.tlc-star.on{ color:var(--ink); }
+.tlc-rate-note{ width:100%; font-family:var(--font-body); font-size:.95rem; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:var(--r-sm); padding:11px 13px; margin-bottom:20px; resize:vertical; }
+.tlc-rate-note:focus{ outline:none; border-color:var(--ink); }
+.tlc-rate-send{ min-width:200px; }
+.tlc-modal-skip{ display:block; margin:14px auto 0; background:none; border:0; font-family:var(--font-body); font-size:.82rem; color:var(--ink-3); cursor:pointer; transition:color .18s ease; }
+.tlc-modal-skip:hover{ color:var(--ink); }
 
 /* ===== Booking wizard — two separate screens on mobile ==================== */
 .book-continue, .book-back{ display:none; }
