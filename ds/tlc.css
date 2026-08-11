@@ -517,7 +517,7 @@ body.drawer-open{ overflow:hidden; }
 /* 9d. Gallery — for stay pages */
 .gallery{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; max-width:var(--container); margin:0 auto; }
 .gallery figure{ aspect-ratio:1; overflow:hidden; border-radius:var(--r-sm); }
-.gallery figure:first-child{ grid-column:span 2; grid-row:span 2; aspect-ratio:auto; }
+.gallery figure:first-child{ grid-column:span 2; grid-row:span 2; aspect-ratio:1; }
 /* even variant — all tiles equal, fills complete rows (no oversized first tile) */
 .gallery--even figure:first-child{ grid-column:auto; grid-row:auto; aspect-ratio:1; }
 .gallery img{ width:100%; height:100%; object-fit:cover; }
