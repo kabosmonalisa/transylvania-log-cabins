@@ -543,10 +543,10 @@ body.drawer-open{ overflow:hidden; }
 .rm-input:focus,.rm-textarea:focus{ outline:none; border-color:var(--ink); }
 .rm-textarea{ resize:vertical; line-height:1.55; min-height:124px; }
 /* helper sits ABOVE the CTA so the button isn't crowded */
-.rm-hint{ font-size:.84rem; line-height:1.55; color:var(--ink-2); text-align:center; margin:30px 0 20px; }
-.rm-send{ display:block; width:100%; text-align:center; }
+.rm-actions{ display:flex; align-items:center; gap:18px; margin-top:32px; }
+.rm-send{ flex:1; text-align:center; }
 .btn.is-disabled{ opacity:.35; pointer-events:none; }
-.rm-back{ display:block; margin:20px auto 0; padding:6px 10px; background:none; border:0; font-family:var(--font-body); font-size:.85rem; color:var(--ink-2); cursor:pointer; transition:color .2s var(--ease); }
+.rm-back{ flex:0 0 auto; padding:6px 12px 6px 0; background:none; border:0; font-family:var(--font-body); font-size:.85rem; color:var(--ink-2); cursor:pointer; white-space:nowrap; transition:color .2s var(--ease); }
 .rm-back:hover{ color:var(--ink); }
 
 /* 9e. Feature / value list */
